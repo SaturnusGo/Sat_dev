@@ -1,0 +1,202 @@
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.swiper-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-inner {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.dialog-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dialog-subtitle {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.dialog-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dialog-button {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.update-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #fafafa;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tab-security {
+  padding: 20px;
+}
+
+.dialog {
+  display: none;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.dialog-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dialog-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.password-block {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.dialog-input input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.dialog-button {
+  display: flex;
+  justify-content: center;
+}
+
+.update-btn {
+  background-color: #1b1c21;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.update-btn:hover {
+  background-color: #0d0e12;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.swiper-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 15px; /* Увеличьте это значение, чтобы добавить больше пространства между хедером и ссылками */
+}
+
+.swiper-pagination {
+  flex-grow: 1;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+}
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet'/>
+    <script src='https://api.mapbox.com/mapbox-sdk-js/v2.4.2/mapbox-sdk.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css'/>
+    <link rel="stylesheet" href="/public/map.css">
+    <link rel="stylesheet" href="/public/side-bar.css">
+</head>
+<body>
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <button class="sidebar-toggle" id="sidebar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="http://127.0.0.1:5000/" data-ru="Главная" data-en="Home" data-es="Inicio">Главная</a></li>
+            <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de">О нас</a></li>
+            <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios">Услуги</a></li>
+            <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos">Контакты</a></li>
+            <li><a href="http://127.0.0.1:5000/login" data-ru="Выйти" data-en="Log out" data-es="Salir">Выйти</a></li>
+        </ul>
+  </div>
+</div>
+    <div id="map" class="map"></div>
+    <form id="route-form" class="route-form">
+        <div id="geocoder" class="geocoder"></div>
+        <button type="submit">Построить маршрут</button>
+    </form>
+  <script src="/public/js/map.js"></script>
+  <script src="/public/js/side-bar.js"></script>
+</body>
+</html>
+

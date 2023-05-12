@@ -1,0 +1,124 @@
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
+
+.loading,
+.saturnusgo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.hidden {
+  opacity: 0;
+  z-index: 9998;
+}
+
+.loading-text,
+.saturnusgo-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+}
+
+.loading-text span,
+.saturnusgo-text span {
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+  font-family: 'Quattrocento Sans', sans-serif;
+  filter: blur(4px);
+}
+
+@keyframes blur-transition {
+  0% {
+    filter: blur(4px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+
+.loading.blur-transition span,
+.saturnusgo.blur-transition span {
+  animation: blur-transition 1.5s infinite linear alternate;
+}
+
+.loading.blur-transition span:nth-child(n + 2),
+.saturnusgo.blur-transition span:nth-child(n + 2) {
+  animation-delay: 0.2s;
+}
+
+.loading.blur-transition span:nth-child(n + 3),
+.saturnusgo.blur-transition span:nth-child(n + 3) {
+  animation-delay: 0.4s;
+}
+
+.loading.blur-transition span:nth-child(n + 4),
+.saturnusgo.blur-transition span:nth-child(n + 4) {
+  animation-delay: 0.6s;
+}
+
+.loading.blur-transition span:nth-child(n + 5),
+.saturnusgo.blur-transition span:nth-child(n + 5) {
+  animation-delay: 0.8s;
+}
+
+.loading.blur-transition span:nth-child(n + 6),
+.saturnusgo.blur-transition span:nth-child(n + 6) {
+  animation-delay: 1s;
+}
+
+.loading.blur-transition span:nth-child(n + 7),
+.saturnusgo.blur-transition span:nth-child(n + 7) {
+  animation-delay: 1.2s;
+}
+
+.saturnusgo.blur-transition span:nth-child(n + 8) {
+  animation-delay: 1.4s;
+}
+
+.saturnusgo.blur-transition span:nth-child(n + 9) {
+  animation-delay: 1.6s;
+}
+
+.saturnusgo.blur-transition span:nth-child(n + 10) {
+  animation-delay: 1.8s;
+}
+
+.btn-next {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.btn-next:hover {
+  background-color: white;
+}
+
+.btn-next.hidden {
+  display: none;
+}
+
+

@@ -1,0 +1,58 @@
+footer {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    z-index: 1000;
+}
+
+footer p {
+    color: #fff;
+    margin: 0;
+    font-size: 12px;
+}
+
+footer .container {
+    background-color: transparent;
+}
+
+footer .register-link-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.register-link {
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #fff !important;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.register-link:hover {
+    color: #ccc !important;
+    animation: scale 0.5s ease-in-out infinite;
+}

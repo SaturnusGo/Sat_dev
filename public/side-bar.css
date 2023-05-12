@@ -1,0 +1,388 @@
+/* Стили кнопки сайдбара */
+.sidebar-toggle {
+  cursor: pointer;
+  position: fixed;
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* изменено */  z-index: 1002;
+  top: 20px;
+  right: 50px;
+}
+
+.sidebar-toggle span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+/* Добавьте эти стили к вашему CSS-файлу */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sidebar-toggle:hover {
+  animation: rotate 1s infinite;
+}
+
+.sidebar-toggle span {
+  background-color: #333;
+}
+
+.sidebar-toggle:hover span {
+  background-color: #555;
+}
+
+
+.sidebar-toggle span:nth-child(1) {
+  top: 6px;
+}
+
+.sidebar-toggle span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar-toggle span:nth-child(3) {
+  bottom: 6px;
+}
+
+/* Стили сайдбара */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  height: 100%;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.8); /* изменено */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 9999;
+  border-radius: 20px;
+}
+
+
+/* Подсветка сайдбара с двух сторон */
+.sidebar::before,
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  z-index: -1;
+}
+
+.sidebar::before {
+  left: -20px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.sidebar::after {
+  right: -20px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 60px;
+}
+
+.sidebar-links li {
+  padding: 20px;
+}
+
+.sidebar-links li a {
+  text-decoration: none;
+  color: #f0f0f0;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+}
+
+
+.sidebar-links li a:hover {
+  color: #ffffff; /* Изменяем цвет ссылки при наведении на неё */
+}
+
+.sidebar-links li a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #f0f0f0;
+  border-bottom: 1px dashed #f0f0f0;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-out;
+}
+
+.sidebar-links li a:hover::before {
+  transform: scaleX(1);
+}
+
+
+.sidebar.active {
+  right: 0; /* Изменяем значение right */
+}
+
+.sidebar-toggle.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.sidebar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebar-toggle.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Стили для шапки */
+.navbar {
+  position: relative;
+  z-index: 999;
+}
+
+.parent .sidebar {
+  left: calc(50% - 125px);
+}
+
+/* Стили для сайдбара с частицами */
+# particles-js-sidebar
+{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+background-color: rgba(240, 240, 240, 0.9);
+}
+
+.particles-container {
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+z-index: -2;
+}
+
+.sidebar {
+z-index: 1;
+}
+.sidebar {
+width: 200px;
+border-radius: 10px;
+}
+.sidebar-links li {
+padding: 10px;
+}
+.sidebar-links li a {
+font-size: 16px;
+}
+}
+
+/* Samsung Galaxy S20/S21 */
+@media only screen and (max-width: 360px) and (max-height: 800px) {
+.sidebar-toggle {
+top: 10px;
+right: 10px;
+}
+.sidebar {
+width: 200px;
+border-radius: 10px;
+}
+.sidebar-links li {
+padding: 10px;
+}
+.sidebar-links li a {
+font-size: 16px;
+}
+}
+
+/* Google Pixel 2/3 */
+@media only screen and (max-width: 411px) and (max-height: 731px) {
+.sidebar-toggle {
+top: 10px;
+right: 10px;
+}
+.sidebar {
+width: 200px;
+border-radius: 10px;
+}
+.sidebar-links li {
+padding: 10px;
+}
+.sidebar-links li a {
+font-size: 16px;
+}
+}
+
+/* Google Pixel 2 XL/3 XL */
+@media only screen and (max-width: 411px) and (max-height: 823px) {
+.sidebar-toggle {
+top: 30px;
+right: 10px;
+}
+.sidebar {
+width: 200px;
+border-radius: 10px;
+}
+.sidebar-links li {
+padding: 10px;
+}
+.sidebar-links li a {
+font-size: 16px;
+}
+
+/* 320px */
+@media only screen and (max-width: 320px) {
+  .sidebar-toggle {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* 340px */
+@media only screen and (max-width: 340px) {
+  .sidebar-toggle {
+    top: 10px;
+    right: 15px;
+  }
+}
+
+/* 360px */
+@media only screen and (max-width: 360px) {
+  .sidebar-toggle {
+    top: 10px;
+    right: 20px;
+  }
+}
+
+/* 375px */
+@media only screen and (max-width: 375px) {
+  .sidebar-toggle {
+    top: 10px;
+    right: 25px;
+  }
+}
+
+/* 390px */
+@media only screen and (max-width: 390px) {
+  .sidebar-toggle {
+    top: 10px;
+    right: 30px;
+  }
+}
+
+/* 400px */
+@media only screen and (max-width: 400px) {
+  .sidebar-toggle {
+    top: 10px;
+    right: 35px;
+  }
+}
+
+/* 480px */
+@media only screen and (max-width: 480px) {
+  .sidebar-toggle {
+    top: 20px;
+    right: 45px;
+  }
+}
+
+
+/* Стили для переключателя языка */
+/* Стили для переключателя языка */
+.language-switch {
+  position: absolute;
+  top: 100%; /* Изменено с bottom: 20px на top: 100% */
+  left: 0;
+  margin-top: 10px; /* Добавлено: Отступ сверху */
+}
+
+.language-switch-btn {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.language-switch-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f0f0f0;
+  box-shadow: -10px -10px 30px #d9d9d9, 10px 10px 30px #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  left: 0;
+  top: 100%;
+  margin-top: 10px;
+  z-index: 1001;
+}
+
+.language-switch-dropdown a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.language-switch-dropdown a:hover {
+  background-color: #eee;
+}
+
+.language-switch-btn:focus + .language-switch-dropdown,
+.language-switch-dropdown:hover {
+  display: block;
+}
+
+/* Добавьте это в ваш CSS-файл */
+.language-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.language-options.active {
+  display: block;
+}
+
+.language-options li a {
+  display: block;
+  color: white;
+  text-align: left;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.language-options li a:hover {
+  background-color: #555;
+}
+
+
+

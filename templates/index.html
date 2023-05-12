@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="/public/videos/favicon.jpg">
+    <title>Твоя поездка начинается здесь</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/public/index-header.css">
+    <link rel="stylesheet" href="/public/main.css">
+    <link rel="stylesheet" href="/public/form-index.css">
+    <link rel="stylesheet" href="/public/language-switcher.css">
+    <link rel="stylesheet" href="/public/side-bar.css">
+    <link rel="stylesheet" href="/public/intro.css">
+</head>
+<body>
+     <header class="header">
+         <div class="header-logo">
+        <span class="logo-text">SaturnusGo</span>
+         </div>
+         <div class="language-switch-dropdown" id="language-switch-dropdown">
+             <i class="fas fa-globe" id="language-globe"></i>
+             <div class="language-option-container" id="language-menu">
+                 <a href="#" class="language-option" data-lang="es">ES</a>
+                 <a href="#" class="language-option" data-lang="en">EN</a>
+                 <a href="#" class="language-option active" data-lang="ru">RU</a>
+             </div>
+         </div>
+         <button class="sidebar-toggle" id="sidebar-toggle">
+             <span></span>
+             <span></span>
+             <span></span>
+         </button>
+         <div class="sidebar" id="sidebar">
+             <ul class="sidebar-links">
+                 <li><a href="/map" data-ru="Карта" data-en="Map" data-es="Mapa">Map</a></li>
+                 <li><a href="/login" data-ru="Войти" data-en="Log in" data-es="Iniciar sesión">Log In</a></li>
+                 <li><a href="/register" data-ru="Зарегистрироваться" data-en="Sign up" data-es="Registrarse">Registration</a></li>
+                 <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de">About Us</a></li>
+                 <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios">Services</a></li>
+                 <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos">Contacts</a></li>
+                 <li><a href="http://127.0.0.1:5000/404.html" data-ru="404 тест" data-en="404 test" data-es="404 testo">Test 404</a></li>
+                 <li><a href="http://127.0.0.1:5000/profile.html#tab-security" data-ru="Тест профиля" data-en="Test profile" data-es="Testo profile">Test edit profile</a></li>
+             </ul>
+     </header>
+     <div id="intro">
+  <div class="title">
+    <h3>
+      <span class="move">M  O  V  E</span>
+      <span class="and">&</span>
+      <span class="drive">D  R  I  V  E</span>
+    </h3>
+  </div>
+</div>
+    <div id="login"></div>
+    <div id="register"></div>
+                <div class="ride-request">
+                    <div class="ride-request-header">
+                        <h3 data-ru="Заказать поездку" data-en="Order a ride" data-es="Pedir un viaje">Заказать поездку</h3>
+                        <span data-ru="Выберите тип поездки и укажите адрес" data-en="Choose a ride type and enter an address" data-es="Elija un tipo de viaje e ingrese una dirección">Выберите            тип поездки и укажите адрес</span>
+                    </div>
+                    <div class="ride-request-body">
+                        <div class="ride-type">
+                            <div class="ride-type-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw79lJQjm48UjSt1IMJJv6OzghcBkqHYsgNQ&usqp=CAU">
+                                <form id="ride-form" action="/order_ride" method="post">
+                            </div>
+                            <div class="ride-type-info">
+                                <h4 data-ru="Стандарт" data-en="Standard" data-es="Estándar">Стандарт</h4>
+                                <span data-ru="Доступен в любое время" data-en="Available at any time" data-es="Disponible en cualquier momento">Доступен в любое время</span>
+                            </div>
+                            <div class="ride-type-price" data-ru="от 450$" data-en="from 450$" data-es="desde 450$">от 450$</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-header-from"><span data-ru="Откуда?:" data-en="From?:" data-es="Desde?:">Откуда?:</span></div>
+                            <div class="ride-address-icon"><i class="fa fa-map-marker"></i></div>
+                            <div class="ride-address-input">
+                                <input type="text" id="from" name="from" class="form-control input-animated" placeholder="Введите адрес" data-ru="Введите адрес" data-en="Enter your address" data-es="Ingrese su dirección" required>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-header-to"><span data-ru="Куда?:" data-en="To:" data-es="Dónde?:">Куда?:</span></div>
+                            <div class="ride-address-icon"><i class="fa fa-map-marker"></i></div>
+                            <div class="ride-address-input">
+                                <input type="text" id="to" name="to" class="form-control input-animated" placeholder="Введите адрес назначения" data-ru="Введите адрес назначения" data-en="Enter destination address" data-es="Ingrese la dirección de destino" required>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ride-request-buttons">
+                        <button class="confirm-button" id="confirm-button" type="button" data-ru="Поехали" data-en="Let's go" data-es="Vamos">Поехали</button>
+                    </div>
+                </div>
+     <video id="intro-video" playsinline muted autoplay loop>
+         <source src="/public/videos/main.mp4" type="video/mp4">
+     </video>
+      <!-- Подключение файла loader.html -->
+</body>
+<!-- Переместил скрипты внутрь тега <html> и перед закрывающим тегом </html> -->
+<script src="/public/js/languages-login.js"></script>
+<script src="/public/js/side-bar.js"></script>
+<script src="/public/js/intro.js"></script>
+<script src="/public/js/index-val.js"></script>
+</html>

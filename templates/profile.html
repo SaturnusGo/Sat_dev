@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование профиля</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/framework7/css/framework7.bundle.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="/public/custom-profile.css">
+    <link rel="stylesheet" href="/public/side-bar.css">
+    <link rel="stylesheet" href="/public/language-switcher.css">
+    <link rel="stylesheet" href="/public/login-footer.css">
+</head>
+<body>
+    <header class="header">
+    <div class="header-logo">
+        <span class="logo-text">SaturnusGo</span>
+         </div>
+    <div class="language-switch-dropdown" id="language-switch-dropdown">
+        <i class="fas fa-globe" id="language-globe"></i>
+        <div class="language-option-container" id="language-menu">
+            <a href="#" class="language-option active" data-lang="ru">RU</a>
+            <a href="#" class="language-option" data-lang="en">EN</a>
+            <a href="#" class="language-option" data-lang="es">ES</a>
+        </div>
+    </div>
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="http://127.0.0.1:8000/" data-ru="Главная" data-en="Home" data-es="Inicio">Главная</a></li>
+            <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de">О нас</a></li>
+            <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios">Услуги</a></li>
+            <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos">Контакты</a></li>
+            <li><a href="http://127.0.0.1:8000/login" data-ru="Выйти" data-en="Log out" data-es="Salir">Выйти</a></li>
+        </ul>
+    </div>
+</header>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <a href="http://127.0.0.1:8000/security-page.html#tab-account-data" class="slider-button" data-ru="Безопасность" data-en="Security" data-es="Seguridad">Безопасность</a>
+            <div id="security-menu" class="menu">
+                <div class="dialog dialog-password">
+                    <div class="dialog-inner">
+                        <div class="dialog-title" data-ru="Пароль" data-en="Password" data-es="Contraseña">Пароль</div>
+                        <div class="dialog-input">
+                            <input type="password" placeholder="Пароль" data-ru="Пароль" data-en="Password" data-es="Contraseña" />
+                            <input type="password" placeholder="Подтвердите пароль" data-ru="Подтвердите пароль" data-en="Confirm password" data-es="Confirme la contraseña" />
+                        </div>
+                        <div class="dialog-button">
+                            <button class="update-btn" data-ru="Обновить" data-en="Update" data-es="Actualizar">Обновить</button>
+                                                        <button class="close-btn" data-ru="Закрыть" data-en="Close" data-es="Cerrar">Закрыть</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <a href="#tab-account-data" class="slider-button active" data-ru="Данные аккаунта" data-en="Account Data" data-es="Datos de la cuenta">Данные аккаунта</a>
+        </div>
+        <div class="swiper-slide">
+            <a href="http://127.0.0.1:8000/404.html" class="slider-button" data-ru="Статистика поездок" data-en="Trip Statistics" data-es="Estadísticas de viaje">Статистика поездок</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="tabs">
+        <div class="tab active" id="tab-account-data">
+            <h1 data-ru="Данные аккаунта" data-en="Account Data" data-es="Datos de la cuenta">Данные аккаунта SaturnusGo</h1>
+            <div class="fields-container animate__animated animate__fadeIn">
+                <div class="user-photo" id="user-photo">
+                    <span class="material-icons-outlined">
+                        account_circle
+                    </span>
+                </div>
+                <p class="photo-info" data-ru="Основная информация" data-en="Main Information" data-es="Información principal">Основная информация</p>
+                <div class="name-block" data-ru="Имя" data-en="Name" data-es="Nombre">{{ first_name }} {{ last_name }}</div>
+                <div class="phone-block" data-ru="Номер телефона" data-en="Phone Number" data-es="Número de teléfono">Номер телефона</div>
+                <div class="email-block" data-ru="Эл. Почта" data-en="Email" data-es="Correo electrónico">{{ email }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно для "Имя" -->
+<!-- Модальное окно для "Имя" -->
+<div class="dialog dialog-name">
+    <div class="dialog-inner">
+        <h1 class="dialog-title" data-ru="Имя" data-en="Name" data-es="Nombre">{{ first_name }}</h1>
+        <p class="dialog-subtitle" data-ru="Укажите имя и фамилию, чтобы мы знали, как к вам правильно обращаться" data-en="Enter your first and last name so we know how to properly address you" data-es="Ingrese su nombre y apellido para que sepamos cómo dirigirnos a usted correctamente">
+            Укажите имя и фамилию, чтобы мы знали, как к вам правильно обращаться
+        </p>
+        <div class="dialog-input">
+            <label for="nameInput" data-ru="Имя" data-en="First Name" data-es="Nombre">Имя </label>
+            <input type="text" id="nameInput" placeholder="" value="{{ first_name }}" />
+            <label for="last-name" data-ru="Фамилия" data-en="Last Name" data-es="Apellido">Фамилия</label>
+            <input type="text" id="last-name" placeholder="" value="{{ last_name }}" />
+        </div>
+        <div class="dialog-button">
+            <button class="update-btn" data-ru="Обновить" data-en="Update" data-es="Actualizar">Обновить</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для "Номер телефона" -->
+<div class="dialog dialog-phone">
+    <div class="dialog-inner">
+        <div class="dialog-title" data-ru="Номер телефона" data-en="Phone Number" data-es="Número de teléfono">Номер телефона</div>
+        <div class="dialog-input">
+            <input type="text" id="phoneInput" placeholder="Номер телефона" data-ru="Номер телефона" data-en="Phone Number" data-es="Número de teléfono" />
+        </div>
+        <div class="dialog-button">
+            <button class="update-btn" data-ru="Обновить" data-en="Update" data-es="Actualizar">Обновить</button>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно для "Эл. Почта" -->
+<div class="dialog dialog-email">
+    <div class="dialog-inner">
+        <div class="dialog-title" data-ru="Электронная почта" data-en="Email" data-es="Correo electrónico">Электронная почта</div>
+        <div class="dialog-input">
+            <input type="text" id="emailInput" placeholder="Эл. Почта" data-ru="Эл. Почта" data-en="Email" data-es="Correo electrónico" value="{{ email }}" />
+        </div>
+        <div class="dialog-button">
+            <button class="update-btn" data-ru="Обновить" data-en="Update" data-es="Actualizar">Обновить</button>
+        </div>
+    </div>
+</div>
+<div class="dialog dialog-photo" id="dialog-photo">
+    <div class="dialog-inner">
+        <div class="dialog-title" data-ru="Фотография профиля" data-en="Profile Photo" data-es="Foto de perfil">Фотография профиля</div>
+        <p class="dialog-subtitle" data-ru="Ваше фото профиля видно всем пользователям SaturnusGo" data-en="Your profile photo is visible to all SaturnusGo users" data-es="Su foto de perfil es visible para todos los usuarios de SaturnusGo">
+            Ваше фото профиля видно всем пользователям SaturnusGo
+        </p>
+        <input type="file" id="profile-photo" accept="image/*" style="display:none;" />
+        <div class="dialog-button">
+            <button class="update-btn" id="photo-update-btn" data-ru="Обновить" data-en="Update" data-es="Actualizar">Обновить</button>
+            <button class="cancel-btn" id="cancel-photo-btn" data-ru="Назад" data-en="Back" data-es="Atrás">Назад</button>
+        </div>
+    </div>
+</div>
+    {% include 'loader.html' %}
+</body>
+    <footer>
+        <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados">SaturnusGo ©Все права защищены</p>
+        <div class="custom-container">
+        </div>
+    </footer>
+    <script src="https://unpkg.com/framework7/js/framework7.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/public/js/profile.js"></script>
+    <script src="/public/js/languages.js"></script>
+    <script src="/public/js/languages-login.js"></script>
+    <script src="/public/js/side-bar.js"></script>
+    <script src="/public/js/session-storage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</html>

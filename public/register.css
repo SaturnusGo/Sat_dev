@@ -1,0 +1,429 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+  background-color: transparent;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 30px;
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+
+
+main {
+  height: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 80px;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  z-index: 3;
+  border: 2px solid #fff; /* Добавьте эту строку */
+}
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+}
+
+input {
+display: block;
+width: 70%;
+max-width: 400px;
+margin: 0 auto;
+padding: 10px 15px;
+font-size: 16px;
+border: none;
+border-radius: 25px;
+background-color: rgba(0, 0, 0, 0.5);
+color: #fff;
+margin-bottom: 20px;
+transition: all 0.3s ease;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(253, 185, 19, 0.5);
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid #fff;
+  border-radius: 25px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  transform: scale(1.1);
+}
+/* Для устройств с экранами шириной до 480 пикселей */
+@media screen and (min-width: 375px) and (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 30px;
+    max-width: 90%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 5px 10px; /* Уменьшаем отступы */
+    font-size: 10.67px; /* Уменьшаем размер шрифта в полтора раза */
+    border-radius: 12.5px; /* Уменьшаем радиус скругления */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  header {
+    padding: 8px;
+  }
+
+  .container {
+    padding: 20px;
+    max-width: 90%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input {
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 4px 8px;
+    font-size: 9px;
+    border-radius: 12.5px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 360px) {
+  header {
+    padding: 9px;
+  }
+
+  .container {
+    padding: 25px;
+    max-width: 90%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  input {
+    width: 100%;
+    padding: 7px 11px;
+    font-size: 13px;
+  }
+
+  button {
+    padding: 4.5px 9px;
+    font-size: 9.89px;
+    border-radius: 12.5px;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 375px) {
+  header {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 28px;
+    max-width: 90%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  label {
+    font-size: 13.5px;
+  }
+
+  input {
+    width: 100%;
+    padding: 7.5px 11.5px;
+    font-size: 13.5px;
+  }
+
+  button {
+    padding: 4.75px 9.5px;
+    font-size: 10.33px;
+    border-radius: 12.5px;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 30px;
+    max-width: 90%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 10.67px;
+    border-radius: 12.5px;
+  }
+}
+
+
+#background-video {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+footer p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--main-color-light);
+}
+
+.register-link {
+    color: var(--main-color-light);
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* Для устройств с экранами до 480px */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+/* Для устройств с экранами от 481px до 767px */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .container {
+        padding: 25px;
+        width: 90%;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+/* Для устройств с экранами от 768px до 1024px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding: 30px;
+        width: 80%;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.7);
+    z-index: 2;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url('https://img.icons8.com/ios/50/000000/visible--v1.png');
+    background-size: cover;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.eye-icon:hover {
+    opacity: 1;
+}
+
+.password-input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.eye-open, .eye-closed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.password-toggle-btn.eye-closed {
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23ffffff\'%3E%3Cpath d=\'M0 0h24v24H0z\' fill=\'none\'/%3E%3Cpath d=\'M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 13c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z\'/%3E%3Cpath d=\'M13 9h-2v2H9v2h2v2h2v-2h2v-2h-2z\'/%3E%3C/svg%3E');
+}
+
+
+.invalid-field {
+    border: 1px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+.form-group {
+  position: relative;
+}
+

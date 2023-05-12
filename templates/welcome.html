@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-ru="Редактирование профиля" data-en="Profile Edit" data-es="Edición del perfil" data-ua="Редагування профілю">Редактирование профиля</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/framework7/css/framework7.bundle.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/public/custom-profile.css">
+    <link rel="stylesheet" href="/public/side-bar.css">
+    <link rel="stylesheet" href="/public/language-switcher.css">
+    <link rel="stylesheet" href="/public/login-footer.css">
+    <link rel="stylesheet" href="/public/verification.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+        <span class="logo-text">SaturnusGo</span>
+         </div>
+        <div class="language-switch-dropdown" id="language-switch-dropdown">
+            <i class="fas fa-globe" id="language-globe"></i>
+            <div class="language-option-container" id="language-menu">
+                <a href="#" class="language-option active" data-lang="ru">RU</a>
+                <a href="#" class="language-option" data-lang="en">EN</a>
+                <a href="#" class="language-option" data-lang="es">ES</a>
+                <a href="#" class="language-option" data-lang="ua">UA</a>
+            </div>
+        </div>
+        <button class="sidebar-toggle" id="sidebar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="sidebar" id="sidebar">
+            <ul class="sidebar-links">
+               <li><a href="http://127.0.0.1:5000/" data-ru="Главная" data-en="Home" data-es="Inicio" data-ua="Головна">Главная</a></li>
+                <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de" data-ua="Про нас">О нас</a></li>
+                <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios" data-ua="Послуги">Услуги</a></li>
+                <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos" data-ua="Контакти">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="fullscreen-photo">
+        <img src="/public/videos/intro_pic.jpg" alt="Полноэкранное фото">
+    </div>
+    <div class="bottom-window">
+        <form class="auth-form">
+            <button class="auth-button">Войти</button>
+            <button class="auth-button">Войти</button>
+            <button class="auth-button">Войти</button>
+        </form>
+    </div>
+    <div id="particles-js"></div>
+    <footer>
+        <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados" data-ua="SaturnusGo ©Усі права захищені">SaturnusGo ©Все права защищены</p>
+        <div class="custom-container">
+
+        </div>
+    </footer>
+        <script src="/public/js/particular.js"></script>
+        <script src="/public/js/languages.js"></script>
+        <script src="/public/js/languages-login.js"></script>
+        <script src="/public/js/side-bar.js"></script>
+</body>
+</html>

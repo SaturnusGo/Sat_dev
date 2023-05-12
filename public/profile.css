@@ -1,0 +1,55 @@
+/* Обновленный profile.css */
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background-color: #444;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+button {
+    display: inline-block;
+    background-color: #1db954;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #22a340;
+}
+
+
+
