@@ -67,23 +67,22 @@
             </div>
         </form>
         <form id="name-form" action="/register/name" method="post" enctype="multipart/form-data" style="display: none;">
-    <div class="form-group">
-        <label for="first_name" data-ru="Имя" data-en="First Name" data-es="Nombre">Имя</label>
-        <input type="text" id="first_name" name="first_name" placeholder="Введите имя" required>
-        <input type="hidden" id="user_id" name="user_id" />
-        <span class="error-msg"></span>
-    </div>
-    <div class="form-group">
-        <label for="last_name" data-ru="Фамилия" data-en="Last Name" data-es="Apellido">Фамилия</label>
-        <input type="text" id="last_name" name="last_name" placeholder="Введите фамилию" required>
-        <span class="error-msg"></span>
-    </div>
-    <div>
-        <button type="submit" id="name-form-next-btn" data-ru="Далее" data-en="Next" data-es="Siguiente">Далее</button>
-        <button type="button" id="name-form-submit-btn" data-ru="Назад" data-en="Back" data-es="Salida">Назад</button>
-    </div>
-</form>
-
+            <div class="form-group">
+                <label for="first_name" data-ru="Имя" data-en="First Name" data-es="Nombre">Имя</label>
+                <input type="text" id="first_name" name="first_name" placeholder="Введите имя" required>
+                <input type="hidden" id="user_id" name="user_id" />
+                <span class="error-msg"></span>
+            </div>
+            <div class="form-group">
+                <label for="last_name" data-ru="Фамилия" data-en="Last Name" data-es="Apellido">Фамилия</label>
+                <input type="text" id="last_name" name="last_name" placeholder="Введите фамилию" required>
+                <span class="error-msg"></span>
+            </div>
+            <div>
+                <button type="submit" id="name-form-next-btn" data-ru="Далее" data-en="Next" data-es="Siguiente">Далее</button>
+                <button type="button" id="name-form-submit-btn" data-ru="Назад" data-en="Back" data-es="Salida">Назад</button>
+            </div>
+        </form>
         <form id="password-form" action="/register/password" method="post" enctype="multipart/form-data" style="display: none;">
             <div class="form-group">
                 <label for="password" data-ru="Пароль" data-en="Password" data-es="Contraseña">Пароль</label>
@@ -114,6 +113,7 @@
     <script src="/public/js/side-bar.js"></script>
     <script src="/public/js/languages-login.js"></script>
     <script src="/public/js/bck-btn-anim.js"></script>
+    <script src="/public/js/step-form.js"></script>
 </body>
 </html>
 

@@ -25,21 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     emailForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value;
-        const formData = new FormData(e.target);
-        const response = await submitForm("/register/email", formData);
+    e.preventDefault();
+    console.log("Submitting email form"); // Добавьте эту строку
+    const email = document.getElementById("email").value;
+    const formData = new FormData(e.target);
+    const response = await submitForm("/register/email", formData);
+    console.log(response);
 
-        console.log(response);  // Добавьте эту строку
+    if (response) {
+        const { user_id } = response;
+        document.getElementById("user_id").value = user_id;
+        document.getElementById("user_id_2").value = user_id;
+        emailForm.style.display = "none";
+        nameForm.style.display = "block";
+    }
+});
 
-        if (response) {
-            const { user_id } = response;
-            document.getElementById("user_id").value = user_id;
-            document.getElementById("user_id_2").value = user_id;
-            emailForm.style.display = "none";
-            nameForm.style.display = "block";
-        }
-    });
 
     nameForm.addEventListener("submit", async (e) => {
         e.preventDefault();
