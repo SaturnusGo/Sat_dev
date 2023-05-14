@@ -43,3 +43,35 @@ document.addEventListener('click', (e) => {
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const submitBtn = document.getElementById("submit-btn");
+    const loginOptions = document.querySelectorAll(".input-checkbox");
+
+    submitBtn.addEventListener("click", function () {
+        let selectedOption;
+        loginOptions.forEach(function (option, index) {
+            if (option.checked) {
+                selectedOption = index;
+            }
+        });
+
+        if (selectedOption === 0) {
+            // Редирект на страницу входа в аккаунт
+            window.location.href = "/login";
+        } else if (selectedOption === 1) {
+            // Редирект на страницу входа по номеру телефона
+            window.location.href = "#";
+        } else {
+            alert("Пожалуйста, выберите одну из опций");
+        }
+    });
+});
+
+function handleLabelClick(event) {
+    event.preventDefault();
+    const radioInput = event.target.previousElementSibling;
+    radioInput.checked = !radioInput.checked;
+}
+
+

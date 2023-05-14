@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Удалить интро через 7 секунды и отобразить главный контент
   setTimeout(() => {
     removeIntro();
-  }, 8000);
+  }, 6000);
 });
 
 function removeIntro() {
@@ -23,7 +23,7 @@ function removeIntro() {
     titleDiv.style.display = 'block';
     setTimeout(() => {
       titleDiv.style.animation = 'fadeIn 2s ease-in forwards, dropDown 1s 5s ease-in forwards';
-    }, 7000); // Задержка в 7 секунд, чтобы дать время анимации fadeIn на выполнение
+    }, 5000); // Задержка в 7 секунд, чтобы дать время анимации fadeIn на выполнение
   }
 }
 
