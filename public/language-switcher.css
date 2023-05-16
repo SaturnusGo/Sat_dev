@@ -69,3 +69,172 @@ margin-right: 0;
 #language-globe {
     cursor: pointer;
 }
+
+/* iPhone 5/SE */
+@media screen and (max-device-width: 320px) and (max-device-height: 568px) {
+    .language-switch-dropdown {
+        font-size: 12px;
+    }
+}
+
+/* iPhone 7/8/SE2 */
+@media screen and (min-device-width: 375px) and (max-device-height: 667px) {
+    .language-switch-dropdown {
+        font-size: 14px;
+    }
+}
+
+/* iPhone 10/X */
+@media screen and (min-device-width: 375px) and (max-device-height: 812px) {
+    .language-switch-dropdown {
+        font-size: 16px;
+    }
+}
+
+/* iPhone 11 */
+@media screen and (min-device-width: 414px) and (max-device-height: 896px) {
+    .language-switch-dropdown {
+        font-size: 18px;
+    }
+}
+
+/* Galaxy S1 */
+@media screen and (max-device-width: 480px) and (max-device-height: 800px) {
+    .language-switch-dropdown {
+        font-size: 14px;
+    }
+}
+
+/* Galaxy S2 */
+@media screen and (max-device-width: 480px) and (max-device-height: 800px) {
+    .language-switch-dropdown {
+        font-size: 14px;
+    }
+}
+
+/* Galaxy S3 */
+@media screen and (max-device-width: 720px) and (max-device-height: 1280px) {
+    .language-switch-dropdown {
+        font-size: 16px;
+    }
+}
+
+/* Galaxy S4 */
+@media screen and (max-device-width: 1080px) and (max-device-height: 1920px) {
+    .language-switch-dropdown {
+        font-size: 18px;
+    }
+}
+
+/* Galaxy S8 */
+@media screen and (max-device-width: 1440px) and (max-device-height: 2960px) {
+    .language-switch-dropdown {
+        font-size: 20px;
+    }
+}
+
+/* Galaxy S9 */
+@media screen and (max-device-width: 1440px) and (max-device-height: 2960px) {
+    .language-switch-dropdown {
+        font-size: 20px;
+    }
+}
+
+/* iPhone 5/SE */
+@media screen and (max-device-width: 320px) and (max-device-height: 568px) {
+    #language-globe {
+        font-size: 20px;
+    }
+}
+
+/* iPhone 7/8/SE2 */
+@media screen and (min-device-width: 375px) and (max-device-height: 667px) {
+    #language-globe {
+        font-size: 22px;
+    }
+}
+
+/* iPhone 10/X */
+@media screen and (min-device-width: 375px) and (max-device-height: 812px) {
+    #language-globe {
+        font-size: 24px;
+    }
+}
+
+/* iPhone 11 */
+@media screen and (min-device-width: 414px) and (max-device-height: 896px) {
+    #language-globe {
+        font-size: 26px;
+    }
+}
+
+/* Galaxy S1 */
+@media screen and (max-device-width: 480px) and (max-device-height: 800px) {
+    #language-globe {
+        font-size: 22px;
+    }
+}
+
+/* Galaxy S2 */
+@media screen and (max-device-width: 480px) and (max-device-height: 800px) {
+    #language-globe {
+        font-size: 22px;
+    }
+}
+
+/* Galaxy S3 */
+@media screen and (max-device-width: 720px) and (max-device-height: 1280px) {
+    #language-globe {
+        font-size: 24px;
+    }
+}
+
+/* Galaxy S4 */
+@media screen and (max-device-width: 1080px) and (max-device-height: 1920px) {
+    #language-globe {
+        font-size: 26px;
+    }
+}
+
+/* Galaxy S8 */
+@media screen and (max-device-width: 1440px) and (max-device-height: 2960px) {
+    #language-globe {
+        font-size: 28px;
+    }
+}
+
+/* Galaxy S9 */
+@media screen and (max-device-width: 1440px) and (max-device-height: 2960px) {
+    #language-globe {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 220px) {
+    .language-switch-dropdown {
+        font-size: 10px;
+    }
+    #language-globe {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 221px) and (max-width: 240px) {
+    .language-switch-dropdown {
+        font-size: 11px;
+    }
+    #language-globe {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 241px) and (max-width: 260px) {
+    .language-switch-dropdown {
+        font-size: 12px;
+    }
+    #language-globe {
+        font-size: 20px;
+    }
+}
+
+

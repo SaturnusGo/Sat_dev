@@ -2,20 +2,28 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title data-ru="Редактирование профиля" data-en="Profile Edit" data-es="Edición del perfil" data-ua="Редагування профілю">Редактирование профиля</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/framework7/css/framework7.bundle.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="/public/custom-profile.css">
-    <link rel="stylesheet" href="/public/side-bar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.csss">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="/public/language-switcher.css">
-    <link rel="stylesheet" href="/public/login-footer.css">
-    <link rel="stylesheet" href="/public/verification.css">
+    <link rel="stylesheet" href="/public/intro.css">
+    <link rel="stylesheet" href="/public/welcome_title.css">
+    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="stylesheet" href="/public/style_navbar.css">
 </head>
 <body>
+<div id="background-container">
+    <canvas id="bg-animation"></canvas>
+</div>
     <header class="header">
         <div class="header-logo">
         <span class="logo-text">SaturnusGo</span>
@@ -29,40 +37,52 @@
                 <a href="#" class="language-option" data-lang="ua">UA</a>
             </div>
         </div>
-        <button class="sidebar-toggle" id="sidebar-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="sidebar" id="sidebar">
-            <ul class="sidebar-links">
-               <li><a href="http://127.0.0.1:5000/" data-ru="Главная" data-en="Home" data-es="Inicio" data-ua="Головна">Главная</a></li>
-                <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de" data-ua="Про нас">О нас</a></li>
-                <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios" data-ua="Послуги">Услуги</a></li>
-                <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos" data-ua="Контакти">Контакты</a></li>
-            </ul>
-        </div>
     </header>
-    <div class="fullscreen-photo">
-        <img src="/public/videos/intro_pic.jpg" alt="Полноэкранное фото">
+<div id="intro">
+    <div class="title">
+        <h3>
+            <span class="move">M  O  V  E</span>
+            <span class="and">&</span>
+            <span class="drive">D  R  I  V  E</span>
+        </h3>
     </div>
-    <div class="bottom-window">
-        <form class="auth-form">
-            <button class="auth-button">Войти</button>
-            <button class="auth-button">Войти</button>
-            <button class="auth-button">Войти</button>
-        </form>
-    </div>
-    <div id="particles-js"></div>
-    <footer>
-        <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados" data-ua="SaturnusGo ©Усі права захищені">SaturnusGo ©Все права защищены</p>
-        <div class="custom-container">
-
+</div>
+<div class="form-structor">
+    <div class="signup">
+        <h2 class="form-title" id="signup" data-ru="или Зарегистрироваться" data-en="or Sign up" data-es="o Registrarse" data-ua="або Зареєструватися"><span>or</span>Sign up</h2>
+        <div class="form-holder">
+          <a href="/register" type="button" id="access-button" class="input" data-ru="Получить полный доступ" data-en="Get full access" data-es="Obtener acceso completo" data-ua="Отримати повний доступ">Получить полный доступ</a>
+          <a href="/404" type="button" id="email-button" class="input" data-ru="Email" data-en="Email" data-es="Email" data-ua="Войти с FaceBook">Войти с FaceBook</a>
+          <a href="/404" type="button" id="password-button" class="input" data-ru="Пароль" data-en="Password" data-es="Contraseña" data-ua="Войти с Google">Войти с Google</a>
         </div>
-    </footer>
-        <script src="/public/js/particular.js"></script>
-        <script src="/public/js/languages.js"></script>
-        <script src="/public/js/languages-login.js"></script>
-        <script src="/public/js/side-bar.js"></script>
+        <button class="submit-btn" data-ru="Далее" data-en="Next" data-es="Siguiente" data-ua="Далі">Next</button>
+    </div>
+    <div class="login slide-up">
+        <div class="center">
+            <h2 class="form-title" id="login"><span>или</span>Войти</h2>
+            <div class="form-holder">
+                <label class="input-container">
+                    <input type="radio" class="input-checkbox" name="login-option" />
+                    <a href="/register" class="input" data-placeholder="" onclick="handleLabelClick(event)">Войти в аккаунт</a>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="input-container">
+                    <input type="radio" class="input-checkbox" name="login-option" />
+                    <a href="/404" class="input" data-placeholder="" onclick="handleLabelClick(event)">Войти по номеру телефона</a>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="submit-btn" id="submit-btn" data-ru="Далее" data-en="Next" data-es="Siguiente" data-ua="Далі">Next</button>
+        </div>
+    </div>
+</div>
+<footer>
+    <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados" data-ua="SaturnusGo ©Усі права захищені">SaturnusGo ©Все права защищены</p>
+</footer>
+<script src="/public/js/languages-login.js"></script>
+<script src="/public/js/side-bar.js"></script>
+<script src="/public/js/script.js"></script>
+<script src="/public/js/three.js"></script>
+<script src="/public/js/intro.js"></script>
 </body>
 </html>

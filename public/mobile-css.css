@@ -1,0 +1,152 @@
+@media screen and (max-width: 320px) {
+  .fields-container {
+    margin-left: -10%;
+    margin-right: -10%;
+    /* Дополнительные стили для iPhone 3 */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .fields-container {
+    margin-left: -10%;
+    margin-right: -10%;
+    /* Дополнительные стили для iPhone 4 */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .fields-container {
+    margin-left: -10%;
+    margin-right: -10%;
+    /* Дополнительные стили для iPhone 5 */
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .fields-container {
+    margin-left: -10%;
+    margin-right: -10%;
+    /* Дополнительные стили для iPhone 6 */
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .fields-container {
+    margin-left: -10%;
+    margin-right: -10%;
+    /* Дополнительные стили для iPhone 7 */
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .fields-container {
+    margin-left: -10%;
+    margin-right: -10%;
+    /* Дополнительные стили для iPhone 8 */
+  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .fields-container {
+    margin-left: -10%;
+    margin-right: -10%;
+    /* Дополнительные стили для iPhone 10 */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S3 */
+    left: 0;
+    width: 90%;
+    top: 95%;
+    transform: translateY(-85%);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S4 */
+    left: 0;
+    width: 90%;
+    top: 95%;
+    transform: translateY(-85%);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S5 */
+    left: 0;
+    width: 90%;
+    top: 95%;
+    transform: translateY(-85%);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S6 */
+    left: 0;
+    width: 90%;
+    top: 95%;
+    transform: translateY(-85%);
+  }
+}
+
+
+@media screen and (max-width: 360px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S7 */
+    left: 0;
+    width: 90%;
+    top: 95%;
+    transform: translateY(-85%);
+  }
+}
+
+
+@media screen and (max-width: 375px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S8 */
+    left: 0;
+    width: 90%;
+    top: 65%;
+    transform: translateY(-65%);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S9 */
+    left: 0;
+    width: 90%;
+    top: 65%;
+    transform: translateY(-65%);
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S10 */
+    left: 0;
+    width: 90%;
+    top: 65%;
+    transform: translateY(-65%);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .fields-container {
+    /* Ваши стили для Galaxy S21 */
+    left: 0;
+    width: 90%;
+    top: 65%;
+    transform: translateY(-65%);
+  }
+}
+
+
+
+
+

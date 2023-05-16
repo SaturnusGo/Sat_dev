@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="shortcut icon" type="image/png" href="/public/videos/favicon.jpg">
   <title>Вход</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -10,64 +10,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="/public/style_navbar.css">
-  <link rel="stylesheet" href="/public/side-bar.css">
+  <link rel="stylesheet" href="/public/login.css">
+  <link rel="stylesheet" href="/public/form-login.css">
   <link rel="stylesheet" href="/public/login-footer.css">
-  <link rel="stylesheet" href="/public/bc-btn.css">
+  <link rel="stylesheet" href="/public/intro.css">
   <link rel="stylesheet" href="/public/language-switcher.css">
+  <link rel="stylesheet" href="/public/styles.css">
 </head>
 <body>
-<div class="sidebar sidebar-hidden">
-  <div class="vertical-stripes">
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-  </div>
-</div>
-  <nav class="navbar">
-  <div class="navbar-brand">
-    <div class="brand-container">
-       <div class="header-logo">
-        <span class="logo-text">SaturnusGo</span>
-         </div>
-      <a href="" class="back-link">
-        <a href="http://127.0.0.1:5000/" class="arrow-link">
-          <i class="fas fa-arrow-circle-left"></i>
-        </a>
-      <div class="language-switch-dropdown" id="language-switch-dropdown">
-        <i class="fas fa-globe" id="language-globe"></i>
-        <div class="language-option-container" id="language-menu">
-          <a href="#" class="language-option active" data-lang="ru">RU</a>
-          <a href="#" class="language-option" data-lang="en">EN</a>
-          <a href="#" class="language-option" data-lang="es">ES</a>
-        </div>
-      </div>
+  <header class="header">
+    <div class="header-logo">
+      <span class="logo-text">SaturnusGo</span>
     </div>
-  </div>
-  <button class="sidebar-toggle" id="sidebar-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  <div class="sidebar" id="sidebar">
-    <ul class="sidebar-links">
-      <li><a href="http://127.0.0.1:5000/" data-ru="Главная" data-en="Home" data-es="Inicio">Главная</a></li>
-      <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de">О нас</a></li>
-      <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios">Услуги</a></li>
-      <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos">Контакты</a></li>
-       <li><a href="/register" data-ru="Зарегистрироваться" data-en="Sign up" data-es="Registrarse">Зарегистрироваться</a></li>
-    </ul>
-  </div>
-</nav>
+     <div class="language-switch-dropdown" id="language-switch-dropdown">
+            <i class="fas fa-globe" id="language-globe"></i>
+            <div class="language-option-container" id="language-menu">
+                <a href="#" class="language-option active" data-lang="ru">RU</a>
+                <a href="#" class="language-option" data-lang="en">EN</a>
+                <a href="#" class="language-option" data-lang="es">ES</a>
+                <a href="#" class="language-option" data-lang="ua">UA</a>
+            </div>
+        </div>
+  </header>
   <main>
     <div id="particles-js"></div>
     <div class="content">
       <div class="container">
         <h2 data-ru="Вход" data-en="Login" data-es="Iniciar sesión">Вход</h2>
-        {% for message in get_flashed_messages() %}
         <p id="error-message" class="flashes">{{ message }}</p>
-        {% endfor %}
         <form action="/auth/login" method="post">
           <label for="login-email" data-ru="Почта:" data-en="email:" data-es="email:">Эл.Почта:</label>
           <input type="email" id="login-email" name="email" autocomplete="username" placeholder="Введите Электронную почту" required>
@@ -99,10 +69,11 @@
     <footer>
       <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados">SaturnusGo ©Все права защищены</p>
       <div class="custom-container">
-        <p><a href="{{ url_for('register') }}" class="register-link" data-ru="Зарегистрируйтесь" data-en="Register" data-es="Regístrate">Зарегистрируйтесь</a></p>
+        <p><a href="{{ url_for('get_register') }}" class="register-link" data-ru="Зарегистрируйтесь" data-en="Register" data-es="Regístrate">Зарегистрируйтесь</a></p>
       </div>
     </footer>
   </main>
+    {% include 'loader.html' %}
 </body>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="/public/js/particular.js"></script>

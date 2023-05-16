@@ -36,7 +36,7 @@
         </button>
         <div class="sidebar" id="sidebar">
             <ul class="sidebar-links">
-               <li><a href="http://127.0.0.1:5000/" data-ru="Главная" data-en="Home" data-es="Inicio" data-ua="Головна">Главная</a></li>
+               <li><a href="/welcome" data-ru="Главная" data-en="Home" data-es="Inicio" data-ua="Головна">Главная</a></li>
                 <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de" data-ua="Про нас">О нас</a></li>
                 <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios" data-ua="Послуги">Услуги</a></li>
                 <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos" data-ua="Контакти">Контакты</a></li>
@@ -47,13 +47,13 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <a href="#tab-security" class="slider-button active" data-ru="Безопасность" data-en="Security" data-es="Seguridad">Без                опасность</a>
+                    <a href="/security-page" class="slider-button active" data-ru="Безопасность" data-en="Security" data-es="Seguridad">Без                опасность</a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="http://127.0.0.1:5000/profile.html#tab-security" class="slider-button" data-ru="Данные аккаунта" data-en="Account Data" data-es="Datos de la cuenta">Данные аккаунта</a>
+                    <a href="/profile/44" class="slider-button" data-ru="Данные аккаунта" data-en="Account Data" data-es="Datos de la cuenta">Данные аккаунта</a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="http://127.0.0.1:5000/404.html" class="slider-button" data-ru="Статистика поездок" data-en="Trip Statistics" data-es="Estadísticas de viaje">Статистика поездок</a>
+                    <a href="/404" class="slider-button" data-ru="Статистика поездок" data-en="Trip Statistics" data-es="Estadísticas de viaje">Статистика поездок</a>
                 </div>
             </div>
         </div>
@@ -77,7 +77,6 @@
         <div class="custom-container">
         </div>
     </footer>
-     {% include 'loader.html' %}
     <script src="https://unpkg.com/framework7/js/framework7.bundle.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/public/js/profile.js"></script>

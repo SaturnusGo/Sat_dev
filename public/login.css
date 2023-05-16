@@ -102,8 +102,7 @@ button[type="submit"]:hover {
 width: 95%;
 }
 
-css
-Copy code
+
 h1 {
     font-size: 28px;
 }
@@ -132,8 +131,7 @@ button[type="submit"] {
 width: 90%;
 }
 
-css
-Copy code
+
 h1 {
     font-size: 24px;
 }
@@ -162,8 +160,6 @@ h1 {
 font-size: 20px;
 }
 
-css
-Copy code
 h2 {
     font-size: 18px;
 }
@@ -182,3 +178,32 @@ button[type="submit"] {
     font-size: 12px;
 }
 }
+
+@media screen and (max-width: 320px) {
+.container {
+width: 85%;
+}
+
+h1 {
+font-size: 20px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+label {
+    font-size: 12px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+    font-size: 12px;
+}
+
+button[type="submit"] {
+    font-size: 12px;
+}
+}
+

@@ -6,6 +6,8 @@
 
     .container {
         padding: 20px;
+        position: relative; /* Added */
+        top: -20px; /* Replace with the desired value */
     }
 
     input[type="text"],
@@ -15,7 +17,6 @@
         padding: 8px;
     }
 }
-
 /* Medium devices (tablets, 480px and up) */
 @media (min-width: 480px) {
     h2 {
@@ -24,6 +25,8 @@
 
     .container {
         padding: 30px;
+        position: static; /* Added */
+        top: auto; /* Added */
     }
 
     input[type="text"],
@@ -33,7 +36,6 @@
         padding: 10px;
     }
 }
-
 /* Large devices (desktops, 720px and up) */
 @media (min-width: 720px) {
     h2 {
@@ -42,6 +44,8 @@
 
     .container {
         padding: 40px;
+        position: static; /* Added */
+        top: auto; /* Added */
     }
 
     input[type="text"],
@@ -51,7 +55,6 @@
         padding: 12px;
     }
 }
-
 h2 {
     color: #fff;
 }
@@ -311,4 +314,11 @@ input {
   height: 50px;
   box-sizing: border-box;
   background-color: transparent;
+}
+
+@media (min-width: 280px) and (max-width: 320px) {
+  .form-container {
+    position: relative; /* Added */
+    top: -20px; /* Replace with the desired value */
+  }
 }

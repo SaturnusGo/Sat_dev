@@ -33,6 +33,46 @@ body {
 	background-image: url('https://images.unsplash.com/photo-1584351583369-6baf055b51a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsYWNrJTIwY2FyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60');
 }
 
+.form-structor .access-btn,
+.form-structor .google-btn,
+.form-structor .facebook-btn {
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    font-size: 16px;
+    color: rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.form-structor .access-btn:last-child,
+.form-structor .google-btn:last-child,
+.form-structor .facebook-btn:last-child {
+    border-bottom: 0;
+}
+
+.form-structor .access-btn:hover,
+.form-structor .google-btn:hover,
+.form-structor .facebook-btn:hover {
+    color: #000;
+    background-color: #f0f0f0;
+}
+
+.form-structor .access-btn[data-placeholder]:before,
+.form-structor .google-btn[data-placeholder]:before,
+.form-structor .facebook-btn[data-placeholder]:before {
+    content: attr(data-placeholder);
+    color: rgba(0,0,0,0.4);
+}
+
+
+
 .signup {
 	position: absolute;
 	top: 50%;
@@ -141,6 +181,27 @@ transition: all .3s ease;
 transition: all .3s ease;
 background-color: rgba(0,0,0,0.8);
 }
+
+#access-button, #email-button, #password-button {
+        padding: 10px 20px;
+        background-color: white;
+        color: gray;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        position: relative;
+        top: -12px; /* Поднимает текст на 2 пикселя вверх */
+    }
+
+    #access-button:hover, #email-button:hover, #password-button:hover {
+        background-color: #f2f2f2;
+    }
+
+     #access-button:active, #email-button:active, #password-button:active {
+        background-color: black;
+        color: white;
+    }
 
 .login {
 position: absolute;
@@ -316,45 +377,6 @@ width: 90%;
 }
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  background-color: #1e1e1e;
-  padding: 1rem;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1001;
-  backface-visibility: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-
-.header-logo {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.logo-text {
-  font-size: 25px;
-  font-weight: bold;
-  background: linear-gradient(to right, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,1) 41%,rgba(255,255,255,1) 59%, rgba(255,255,255,0.2) 60%,rgba(255,255,255,0.2) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: motion 3s infinite linear;
-  text-transform: capitalize;
-}
-
-@keyframes motion {
-  0% {
-    background-position: -110px;
-  }
-  100% {
-    background-position: 360px;
-  }
-}
-
 #background-container {
   position: fixed;
   top: 0;
@@ -427,6 +449,130 @@ width: 90%;
   display: block;
 }
 
+/* Media query for 250px */
+@media (max-width: 250px) {
+  .form-structor {
+    height: 400px;
+    width: 80%;
+  }
+  .signup, .login {
+    width: 80%;
+  }
+  .logo-text {
+    font-size: 18px;
+  }
+}
+
+/* Media query for 280px */
+@media (max-width: 280px) {
+  .form-structor {
+    height: 450px;
+    width: 85%;
+  }
+  .signup, .login {
+    width: 85%;
+  }
+  .logo-text {
+    font-size: 20px;
+  }
+}
+
+/* Media query for 320px */
+@media (max-width: 320px) {
+  .form-structor {
+    height: 500px;
+    width: 90%;
+  }
+  .signup, .login {
+    width: 90%;
+  }
+  .logo-text {
+    font-size: 22px;
+  }
+}
+
+/* Media query for 340px */
+@media (max-width: 340px) {
+  .form-structor {
+    height: 520px;
+    width: 95%;
+  }
+  .signup, .login {
+    width: 95%;
+  }
+  .logo-text {
+    font-size: 24px;
+  }
+}
+
+/* Media query for 390px */
+@media (max-width: 390px) {
+  .form-structor {
+    height: 540px;
+    width: 100%;
+  }
+  .signup, .login {
+    width: 100%;
+  }
+  .logo-text {
+    font-size: 26px;
+  }
+}
+
+/* Media query for 467px */
+@media (max-width: 467px) {
+  .form-structor {
+    height: 550px;
+    width: 100%;
+  }
+  .signup, .login {
+    width: 100%;
+  }
+  .logo-text {
+    font-size: 28px;
+  }
+}
+
+/* Media query for 545px */
+@media (max-width: 545px) {
+  .form-structor {
+    height: 550px;
+    width: 100%;
+  }
+  .signup, .login {
+    width: 100%;
+  }
+  .logo-text {
+    font-size: 30px;
+  }
+}
+
+/* Media query for 780px */
+@media (max-width: 780px) {
+  .form-structor {
+    height: 550px;
+    width: 100%;
+  }
+  .signup, .login {
+    width: 100%;
+  }
+  .logo-text {
+    font-size: 32px;
+  }
+}
+/* Media query for iPhone SE (3rd generation) */
+@media screen and (device-width: 320px) and (device-height: 568px) {
+  .form-structor {
+    height: 500px;
+    width: 90%;
+  }
+  .signup, .login {
+    width: 90%;
+  }
+  .logo-text {
+    font-size: 22px;
+  }
+}
 
 
 

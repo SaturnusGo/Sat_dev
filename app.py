@@ -101,6 +101,12 @@ async def get_user_profile(request: Request, user_id: int, db: Session = Depends
     return templates.TemplateResponse("profile.html", {"request": request, "user": user})
 
 
+@app.get("/login", response_class=HTMLResponse)
+async def get_login(request: Request):
+    messages = ["Сообщение 1", "Сообщение 2"]  # Ваши сообщения
+    return templates.TemplateResponse("login.html", {"request": request, "messages": messages})
+
+
 @app.exception_handler(Exception)
 async def exception_handler(request: Request, exc: Exception):
     return JSONResponse(
@@ -132,15 +138,25 @@ async def order_ride(from_address: str, to_address: str):
     return {"status": "success", "from": from_address, "to": to_address}
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/welcome", response_class=HTMLResponse)
 async def get_index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-@app.get("/welcome")
+@app.get("/security-page", response_class=HTMLResponse)
+async def get_security_page(request: Request):
+    return templates.TemplateResponse("security-page.html", {"request": request})
+
+
+@app.get("/404", response_class=HTMLResponse)
+async def get_404_page(request: Request):
+    return templates.TemplateResponse("404.html", {"request": request})
+
+
+@app.get("/")
 async def read_root(request: Request):
     return templates.TemplateResponse("welcome.html", {"request": request})
 
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, log_level="info")
+    uvicorn.run("app:app", host="127.0.0.1", port=5000, log_level="info")

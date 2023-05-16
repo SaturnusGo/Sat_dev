@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/public/side-bar.css">
     <link rel="stylesheet" href="/public/language-switcher.css">
     <link rel="stylesheet" href="/public/login-footer.css">
+
 </head>
 <body>
     <header class="header">
@@ -22,13 +23,14 @@
         <span class="logo-text">SaturnusGo</span>
          </div>
     <div class="language-switch-dropdown" id="language-switch-dropdown">
-        <i class="fas fa-globe" id="language-globe"></i>
-        <div class="language-option-container" id="language-menu">
-            <a href="#" class="language-option active" data-lang="ru">RU</a>
-            <a href="#" class="language-option" data-lang="en">EN</a>
-            <a href="#" class="language-option" data-lang="es">ES</a>
+            <i class="fas fa-globe" id="language-globe"></i>
+            <div class="language-option-container" id="language-menu">
+                <a href="#" class="language-option active" data-lang="ru">RU</a>
+                <a href="#" class="language-option" data-lang="en">EN</a>
+                <a href="#" class="language-option" data-lang="es">ES</a>
+                <a href="#" class="language-option" data-lang="ua">UA</a>
+            </div>
         </div>
-    </div>
     <button class="sidebar-toggle" id="sidebar-toggle">
         <span></span>
         <span></span>
@@ -36,18 +38,18 @@
     </button>
     <div class="sidebar" id="sidebar">
         <ul class="sidebar-links">
-            <li><a href="http://127.0.0.1:8000/" data-ru="Главная" data-en="Home" data-es="Inicio">Главная</a></li>
+            <li><a href="/welcome" data-ru="Главная" data-en="Home" data-es="Inicio">Главная</a></li>
             <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de">О нас</a></li>
             <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios">Услуги</a></li>
             <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos">Контакты</a></li>
-            <li><a href="http://127.0.0.1:8000/login" data-ru="Выйти" data-en="Log out" data-es="Salir">Выйти</a></li>
+            <li><a href="/login" data-ru="Выйти" data-en="Log out" data-es="Salir">Выйти</a></li>
         </ul>
     </div>
 </header>
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <a href="http://127.0.0.1:8000/security-page.html#tab-account-data" class="slider-button" data-ru="Безопасность" data-en="Security" data-es="Seguridad">Безопасность</a>
+            <a href="/security-page" class="slider-button" data-ru="Безопасность" data-en="Security" data-es="Seguridad">Безопасность</a>
             <div id="security-menu" class="menu">
                 <div class="dialog dialog-password">
                     <div class="dialog-inner">
@@ -65,10 +67,10 @@
             </div>
         </div>
         <div class="swiper-slide">
-            <a href="#tab-account-data" class="slider-button active" data-ru="Данные аккаунта" data-en="Account Data" data-es="Datos de la cuenta">Данные аккаунта</a>
+            <a href="#" class="slider-button active" data-ru="Данные аккаунта" data-en="Account Data" data-es="Datos de la cuenta">Данные аккаунта</a>
         </div>
         <div class="swiper-slide">
-            <a href="http://127.0.0.1:8000/404.html" class="slider-button" data-ru="Статистика поездок" data-en="Trip Statistics" data-es="Estadísticas de viaje">Статистика поездок</a>
+            <a href="/404" class="slider-button" data-ru="Статистика поездок" data-en="Trip Statistics" data-es="Estadísticas de viaje">Статистика поездок</a>
         </div>
     </div>
 </div>
