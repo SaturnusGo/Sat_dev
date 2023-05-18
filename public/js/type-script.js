@@ -1,5 +1,3 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 "use strict";
 var UserStatus;
 (function (UserStatus) {
