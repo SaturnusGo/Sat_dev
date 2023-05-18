@@ -50,6 +50,38 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+const profilePhotoInput = document.querySelector('#profile-photo');
+const photoPlaceholder = document.querySelector('#user-photo');
+const svgElement = document.querySelector('#user-photo .material-icons-outlined');
+
+// Обработчик изменения файла
+profilePhotoInput.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      // Загрузка изображения
+      photoPlaceholder.style.backgroundImage = `url(${event.target.result})`;
+      svgElement.style.display = 'none'; // Скрыть SVG элемент
+
+      // Сохранение изображения в LocalStorage
+      localStorage.setItem('profilePhoto', event.target.result);
+    }
+    reader.readAsDataURL(file);
+  }
+});
+
+// Загрузка сохраненного изображения из LocalStorage при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  //...
+  const savedPhoto = localStorage.getItem('profilePhoto');
+  if (savedPhoto) {
+    photoPlaceholder.style.backgroundImage = `url(${savedPhoto})`;
+    svgElement.style.display = 'none'; // Скрыть SVG элемент
+  }
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const swiper = new Swiper('.swiper-container', {
     slidesPerView: 'auto',
@@ -138,11 +170,11 @@ $(document).ready(function() {
   });
 });
 
-// Загрузка сохраненных значений из local storage при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
   const savedName = localStorage.getItem('profileName');
   const savedPhone = localStorage.getItem('profilePhone');
   const savedEmail = localStorage.getItem('profileEmail');
+  const savedPhoto = localStorage.getItem('profilePhoto');
 
   if (savedName) {
     document.querySelector('.name-block').textContent = savedName;
@@ -153,7 +185,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (savedEmail) {
     document.querySelector('.email-block').textContent = savedEmail;
   }
+  if (savedPhoto) {
+    photoPlaceholder.style.backgroundImage = `url(${savedPhoto})`;
+    svgElement.style.display = 'none'; // Скрыть SVG элемент
+  }
 });
+
 
 function updateProfileData(data) {
   $.ajax({
@@ -199,3 +236,4 @@ function updateProfileFields(profileData) {
   document.querySelector('.phone-block').textContent = profileData.phone;
   document.querySelector('.email-block').textContent = profileData.email;
 }
+

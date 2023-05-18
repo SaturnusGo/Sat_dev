@@ -158,5 +158,15 @@ async def read_root(request: Request):
     return templates.TemplateResponse("welcome.html", {"request": request})
 
 
+@app.get("/services", response_class=HTMLResponse)
+async def get_services(request: Request):
+    return templates.TemplateResponse("services.html", {"request": request})
+
+
+@app.get("/add-card", response_class=HTMLResponse)
+async def get_add_card(request: Request):
+    return templates.TemplateResponse("add-card.html", {"request": request})
+
+
 if __name__ == "__main__":
     uvicorn.run("app:app", host="127.0.0.1", port=5000, log_level="info")

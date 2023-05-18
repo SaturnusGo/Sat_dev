@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/browse/@types/react@16.4.14/index.d.ts"></script>
+    <script src="https://unpkg.com/browse/@types/react-dom@17.0.2/index.d.ts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.3.1/index.min.js"></script>
+    <script src="https://codepen.io/Hyperplexed/pen/xxYJYjM/54407644e24173ad6019b766443bf2a6.js"></script>
+    <script src="https://kit.fontawesome.com/dafc7c6349.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/public/weather.css">
+    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="stylesheet" href="/public/side-bar.css">
+    <link rel="stylesheet" href="/public/language-switcher.css">
+    <title>Услуги</title>
+</head>
+ <header class="header">
+    <div class="header-logo">
+        <span class="logo-text">SaturnusGo</span>
+         </div>
+    <div class="language-switch-dropdown" id="language-switch-dropdown">
+            <i class="fas fa-globe" id="language-globe"></i>
+            <div class="language-option-container" id="language-menu">
+                <a href="#" class="language-option active" data-lang="ru">RU</a>
+                <a href="#" class="language-option" data-lang="en">EN</a>
+                <a href="#" class="language-option" data-lang="es">ES</a>
+                <a href="#" class="language-option" data-lang="ua">UA</a>
+            </div>
+        </div>
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="/welcome" data-ru="Главная" data-en="Home" data-es="Inicio">Главная</a></li>
+            <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de">О нас</a></li>
+            <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios">Услуги</a></li>
+            <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos">Контакты</a></li>
+            <li><a href="/login" data-ru="Выйти" data-en="Log out" data-es="Salir">Выйти</a></li>
+        </ul>
+    </div>
+</header>
+<div id="root"></div>
+<body>
+</body>
+<script src="/public/js/type-script.js"></script>
+<script src="/public/js/side-bar.js"></script>
+<script src="/public/js/languages.js"></script>
+<script src="/public/js/languages-login.js"></script>
+</html>

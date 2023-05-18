@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap");
+
+.main{
+    min-height: 90vh;
+    display: flex;
+    padding: 50px 15px;
+    justify-content: center;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    /* bottom: 0; */
+    margin: auto;
+
+}
+select{
+    -webkit-appearance: none;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC");
+    background-size: 12px;
+    background-position: 90% center;
+    background-repeat: no-repeat;
+    padding-right: 30px;
+}
+textarea:focus, input:focus{
+    outline: none;
+    outline: none !important;
+    border-color: #007bff;
+    border-width: 1.5px;
+    box-shadow: 0 0 5px #719ECE;
+}
+.submitbu{
+    box-shadow: 1px 9px 20px -6px rgb(35 100 210);
+    color: white !important;
+}
+.form{
+    border-radius: 16px;
+    box-shadow: -3px 20px 75px -1px rgb(0 0 0 / 44%);
+    /* box-shadow: 1px -3px 20px 3px rgb(0 0 0 / 75%); */
+    position: relative;
+    min-width: 570px;
+    background-color: white;
+    justify-content: center;
+    display: flex;
+    /* transform: translateZ(50px); */
+    perspective: 2000px;
+}
+.name{
+    color: white;
+}
+body{
+     background: black;
+    font-family: "Source Sans Pro", sans-serif;
+}
+.card{
+    /* box-shadow: 1px -3px 20px 3px rgb(0 0 0 / 75%); */
+    box-shadow: -2px 5px 39px 0px rgb(0 0 0 / 75%);
+    top: -20%;
+    position: absolute;
+    border-radius: 15px;
+    transform: rotateY(0deg);
+    transition: transform ease-in 1s;
+        /* min-width: 80%; */
+        transform-style: preserve-3d;
+ position: relative;
+     /* min-width: 80%; */
+     width: 80%;
+     height: 45%;
+     background-image: url(https://img.freepik.com/free-vector/multicolored-abstract-background_23-2148463672.jpg?w=2000);
+     background-size: cover;
+        /* min-width: 80%; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+}
+/* https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png */
+.box{
+    height: 85%;
+    width: 90%;
+    z-index: 5;
+}
+.visaimage{
+    height: 26%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 23px;
+}
+.visaimage img{
+    height: 80%;
+}
+.visaicon{
+    width: 100%;
+    height: 22%;
+    position: relative;
+}
+.visaicon img{
+    height: 100%;
+}
+.numberdigit{
+    width: 100%;
+    justify-content: center;
+    margin-top: 10%;
+    height: 22%;
+        /* border: solid 2px #fcc8c8; */
+    align-items: center;
+    display: flex;
+}
+.numberdigital{
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+    color: white;
+    font-weight: 700;
+    width: 24%;
+    font-size: 30px;
+    position: relative;
+}
+.numberdigital div:not(:first-child) {
+    margin-left: 4px;
+}
+.card:before {
+    border-radius: 15px;
+
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0f0f0f center center;
+    opacity: 0.4;
+}
+.cardholder{
+    display: flex;
+    width: 100%;
+    height: 25%;
+    /* border: solid; */
+    margin-top: 10%;
+}
+.holder{
+    width: 80%;
+    height: 100%;
+}
+.expire{
+    height: 100%;
+    width: 20%;
+}
+.fixed{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    word-spacing: 6px;
+}
+.propermonth span{
+    font-size: 20px;
+}
+.formdetail{
+    position: absolute;
+    height: 65%;
+    width: 86%;
+    bottom: 0%;
+}
+.thirdcol{
+    margin-top: 5%;
+}
+.thirdcol span{
+    height: 30%;
+    font-size: 13px;
+}
+
+.thirdcol select{
+    font-size: 15px;
+    letter-spacing: 1px;
+    height: 70%;
+        /* display: flex; */
+    /* text-align: center; */
+    padding: 10px;
+    /* justify-content: center; */
+}
+.thirdcol input{
+    height: 65%;
+}
+.border {
+    position: absolute;
+    opacity: 0;
+    border-radius: 6px;
+    border: white solid 2px;
+    /* transition: all ease-in 1s; */
+    /* transition: all ease-in 1s; */
+
+}
+.cardback{
+          /* transform: translateZ(-23px); */
+          border-radius: 15px;
+
+    background-image: url(https://img.freepik.com/free-vector/multicolored-abstract-background_23-2148463672.jpg?w=2000);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    transform: translateZ(-1px) rotateY(180deg);
+    align-items: center;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+.boxi{
+    height: 80%;
+    width: 90%;
+    z-index: 5;
+    position: absolute;
+}
+.blackslip{
+    width: 114%;
+    background: black;
+    height: 25%;
+    position: relative;
+    left: -21px;
+}
+.cvv span{
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    display: block;
+    height: 10%;
+    display: flex;
+    align-content: inherit;
+    flex-direction: row-reverse;
+    margin-bottom: 15px;
+    transform: translateX(-6px);
+    letter-spacing: 1px;
+}
+.cvvwhite{
+    width: 100%;
+    height: 70%;
+    border-radius: 4px;
+    background: white;
+}
+.cvv{
+    height: 34%;
+    width: 100%;
+    margin-top: 5%;
+
+}
+.backgroundw{
+    position: fixed ;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0f0f0f center center;
+    opacity: 0.4;
+}
+.updownnumber{
+    position: relative;
+    top: 0px;
+    transition: top 500ms ease;
+}
+
+.cardnumberinput{
+    font-size: 19px;
+    padding: 1px 13px;
+
+}
+.holdernameofuser{
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    word-spacing: -3px;
+}
+.propername{
+    overflow: hidden;
+    position: relative;
+}
+.fixed{
+        position: relative;
+
+}
+.activeturn{
+    transform: rotateY(180deg);
+}
+.cardholderinput{
+    font-size: 19px;
+    padding: 1px 13px;
+    text-transform: uppercase;
+}
+.active{
+    top: -38px;
+}
+
+/* Для разрешения меньше 600px */
+@media (max-width: 600px) {
+.main {
+top: 10%;
+padding: 30px 10px;
+}
+
+.form {
+min-width: 90%;
+}
+
+.card {
+width: 90%;
+height: 40%;
+font-size: 14px;
+}
+
+.card-item__typeImg {
+height: 12px;
+}
+}
+
+/* Для разрешения меньше 480px */
+@media (max-width: 480px) {
+.main {
+top: 5%;
+padding: 20px 5px;
+}
+
+.form {
+min-width: 95%;
+}
+
+.card {
+width: 95%;
+height: 35%;
+font-size: 12px;
+}
+
+.card-item__typeImg {
+height: 10px;
+}
+}
+
+/* Для разрешения меньше 320px */
+@media (max-width: 320px) {
+.main {
+top: 2%;
+padding: 10px 2px;
+}
+
+.form {
+min-width: 98%;
+}
+
+.card {
+width: 98%;
+height: 30%;
+font-size: 10px;
+}
+
+.card-item__typeImg {
+height: 8px
+
+;
+}
+}

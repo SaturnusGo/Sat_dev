@@ -1,5 +1,6 @@
-body {
-    position: fixed;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+html ,body {
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -184,4 +185,76 @@ body {
     background-position: 360px;
   }
 }
+
+@keyframes silverEffect {
+  0% { background-color: #f0f0f0; }
+  50% { background-color: #d0d0d0; }
+  100% { background-color: #f0f0f0; }
+}
+
+.add-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.add-card-button:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.add-card-button:active {
+  animation-name: silverEffect;
+}
+
+.add-card-button .material-icons-outlined {
+  height: 18px;
+  width: 18px;
+  fill: currentColor;
+}
+
+.add-card-button span {
+  white-space: nowrap;
+}
+
+/* Дополнительные стили для уменьшения размера SVG-иконки */
+.add-card-button .material-icons-outlined {
+  transform: scale(0.8);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' -25,
+  'opsz' 24
+}
+#login-pass {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#login-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+
+
 

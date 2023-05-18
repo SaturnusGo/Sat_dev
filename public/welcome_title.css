@@ -15,8 +15,8 @@ body {
 .form-structor {
 	background-color: #222;
 	border-radius: 15px;
-	height: 550px;
-	width: 350px;
+	height: 450px;
+	width: 300px;
 	position: fixed;
 	overflow: hidden;
 	z-index: 10;
@@ -33,23 +33,41 @@ body {
 	background-image: url('https://images.unsplash.com/photo-1584351583369-6baf055b51a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsYWNrJTIwY2FyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60');
 }
 
-.form-structor .access-btn,
-.form-structor .google-btn,
-.form-structor .facebook-btn {
-    border: 0;
-    outline: none;
-    box-shadow: none;
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    padding: 8px 15px;
-    border-bottom: 1px solid #eee;
-    width: 100%;
-    font-size: 16px;
-    color: rgba(0,0,0,0.4);
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+/* Стили по умолчанию */
+.btn-block {
+  background-color: white; /* Белый цвет фона */
+  color: black; /* Черный цвет текста */
+  transition: background-color 0.3s ease; /* Плавный переход цвета фона */
 }
+
+/* Красный цвет иконки Google в обычном состоянии */
+.btn-block .fab.fa-google {
+  color: red;
+}
+
+/* Стили при наведении */
+.btn-block:hover {
+  background-color: red; /* Красный цвет фона при наведении */
+  color: white; /* Белый цвет текста при наведении */
+}
+
+/* Белый цвет иконки Google при наведении */
+.btn-block:hover .fab.fa-google {
+  color: white;
+}
+
+/* Стили при нажатии */
+.btn-block:active {
+  background-color: darkred; /* Темно-красный цвет фона при нажатии */
+  color: white; /* Белый цвет текста при нажатии */
+}
+
+/* Белый цвет иконки Google при нажатии */
+.btn-block:active .fab.fa-google {
+  color: white;
+}
+
+
 
 .form-structor .access-btn:last-child,
 .form-structor .google-btn:last-child,
@@ -78,7 +96,7 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 65%;
+	width: 70%;
 	z-index: 5;
 	transition: all .3s ease;
 }
@@ -206,7 +224,7 @@ background-color: rgba(0,0,0,0.8);
 .login {
 position: absolute;
 top: 20%;
-left: 0;
+left: 10%;
 right: 0;
 bottom: 0;
 background-color: #fff;
@@ -222,7 +240,7 @@ top: -20px;
 transform: translate(-50%, 0);
 background-color: #fff;
 width: 200%;
-height: 250px;
+height: 200px;
 border-radius: 50%;
 z-index: 4;
 transition: all .3s ease;
@@ -230,7 +248,7 @@ transition: all .3s ease;
 
 .login .center {
 position: absolute;
-top: calc(50% - 10%);
+top: calc(50% - 5%);
 left: 50%;
 transform: translate(-50%, -50%);
 width: 65%;
@@ -273,7 +291,7 @@ transition: all .3s ease;
   padding: 8px 15px;
   border-bottom: 1px solid #eee;
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   color: rgba(0, 0, 0, 0.4); /* Цвет текста */
   text-decoration: none; /* Убирает подчеркивание текста ссылки */
   cursor: pointer; /* Изменение курсора при наведении */
@@ -305,9 +323,9 @@ border:0;
 border-radius: 15px;
 display: block;
 margin: 15px auto;
-padding: 15px 45px;
+padding: 10px 30px;
 width: 100%;
-font-size: 16px;
+font-size: 14px;
 font-weight: bold;
 cursor: pointer;
 opacity: 1;
@@ -322,6 +340,19 @@ transition: all .3s ease;
   .login #login-submit {
     padding: 15px 25px;
     font-size: 14px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .form-structor {
+    height: 500px;
+    width: 90%;
+  }
+  .signup,
+  .signup.slide-up,
+  .login,
+  .login.slide-up {
+    width: 90%;
   }
 }
 
@@ -573,6 +604,56 @@ width: 90%;
     font-size: 22px;
   }
 }
+
+  /* Стили для кнопок */
+  .input {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .input:hover {
+    background-color: #555;
+    color: #fff;
+  }
+
+  .access-button {
+    background-color: #555;
+    color: #fff;
+  }
+
+  .email-button {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .password-button {
+    background-color: #222;
+    color: #fff;
+  }
+
+  .submit-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background-color: #333;
+  }
 
 
 

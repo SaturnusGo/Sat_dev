@@ -2,13 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title data-ru="Редактирование профиля" data-en="Profile Edit" data-es="Edición del perfil" data-ua="Редагування профілю">Редактирование профиля</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/framework7/css/framework7.bundle.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,-25" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/public/custom-profile.css">
     <link rel="stylesheet" href="/public/side-bar.css">
     <link rel="stylesheet" href="/public/language-switcher.css">
@@ -47,7 +49,7 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <a href="/security-page" class="slider-button active" data-ru="Безопасность" data-en="Security" data-es="Seguridad">Без                опасность</a>
+                    <a href="/security-page" class="slider-button active" data-ru="Безопасность" data-en="Security" data-es="Seguridad">Безопасность</a>
                 </div>
                 <div class="swiper-slide">
                     <a href="/profile/44" class="slider-button" data-ru="Данные аккаунта" data-en="Account Data" data-es="Datos de la cuenta">Данные аккаунта</a>
@@ -66,6 +68,12 @@
             <div class="password-change-input">
                 <input type="password" placeholder="Новый пароль" data-ru="Новый пароль" data-en="New Password" data-es="Nueva contraseña">
                 <input type="password" placeholder="Подтвердите новый пароль" data-ru="Подтвердите новый пароль" data-en="Confirm New Password" data-es="Confirme la nueva contraseña">
+                <i id="login-eye" class="ri-eye-off-line"></i>
+                <button class="add-card-button" data-ru="Добавить кредитную карту" data-en="Add Credit Card" data-es="Agregar tarjeta de crédito" data-ua="Додати кредитну картку" onclick="redirectToAddCard()">Добавить кредитную карту
+                    <span class="material-symbols-outlined">
+                        credit_card
+                    </span>
+                </button>
             </div>
             <div class="password-change-button">
                 <button data-ru="Сохранить" data-en="Save" data-es="Guardar" data-ua="Зберегти">Сохранить</button>
@@ -77,6 +85,11 @@
         <div class="custom-container">
         </div>
     </footer>
+    <script>
+        function redirectToAddCard() {
+        window.location.href = '/add-card';
+        }
+</script>
     <script src="https://unpkg.com/framework7/js/framework7.bundle.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/public/js/profile.js"></script>
