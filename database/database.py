@@ -4,6 +4,10 @@ from fastapi import HTTPException
 from sqlalchemy.orm import scoped_session, sessionmaker, Session
 from Sat_dev.database.models import Base
 from Sat_dev.database.models import User
+from passlib.context import CryptContext
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
 
 DATABASE_URL = "sqlite:///./database.db"
 
@@ -30,7 +34,7 @@ def get_db():
 
 
 def create_user_email(db: Session, email: str) -> User:
-    user = User(email=email)
+    user = User(email=email, password=pwd_context.hash("default_password"))
     db.add(user)
     db.commit()
     db.refresh(user)
@@ -52,7 +56,7 @@ def update_user_password(db: Session, user_id: int, password: str) -> User:
     user = db.query(User).filter(User.user_id == user_id).first()
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
-    user.password = password
+    user.password = pwd_context.hash(password)
     db.commit()
     db.refresh(user)
     return user

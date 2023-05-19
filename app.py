@@ -6,6 +6,7 @@ from Sat_dev.database.schemas import UserCreate
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
 from Sat_dev.database.models import User
+from Sat_dev.database.schemas import UserIn
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from Sat_dev.database.database import get_db, create_tables, create_user_email, update_user_name, update_user_password, \
     get_user_by_id
@@ -13,6 +14,10 @@ from fastapi import FastAPI, Request, Form, Depends, HTTPException, status, Uplo
 from Sat_dev.database.models import RegisterEmailRequest, RegisterNameRequest, RegisterPasswordRequest
 from fastapi.responses import JSONResponse
 from fastapi import APIRouter
+from passlib.context import CryptContext
+from fastapi.security import OAuth2PasswordRequestForm
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 app = FastAPI()
 api_router = APIRouter()
@@ -49,6 +54,13 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
     return db_user
 
 
+def verify_password(db: Session, user_id: int, password: str) -> bool:
+    user = db.query(User).filter(User.user_id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return pwd_context.verify(password, user.password)
+
+
 @app.get("/register", response_class=HTMLResponse)
 async def get_register(request: Request):
     return templates.TemplateResponse("register.html", {"request": request})
@@ -57,8 +69,18 @@ async def get_register(request: Request):
 # Ваш код
 @app.post("/register/email")
 def register_email(request: RegisterEmailRequest, db: Session = Depends(get_db)):
-    user = create_user_email(db, email=request.email)
-    return {"user_id": user.user_id}
+    existing_user = db.query(User).filter(User.email == request.email).first()
+    if existing_user is not None:
+        raise HTTPException(status_code=400, detail="Email already registered. Recover access?")
+    else:
+        user = create_user_email(db, email=request.email)
+        return {"user_id": user.user_id}
+
+
+@app.post("/check_email")
+def check_email(email: str, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == email).first()
+    return {"exists": bool(user)}
 
 
 @app.post("/register/name")
@@ -90,7 +112,7 @@ async def submit_registration(request: Request, user_id: int, updated_profile_da
 
     db.commit()
 
-    return {"message": "Профиль успешно обновлен"}
+    return {"message": "Супер! Поехали дальше"}
 
 
 @app.get("/profile/{user_id}", response_class=HTMLResponse)
@@ -105,6 +127,19 @@ async def get_user_profile(request: Request, user_id: int, db: Session = Depends
 async def get_login(request: Request):
     messages = ["Сообщение 1", "Сообщение 2"]  # Ваши сообщения
     return templates.TemplateResponse("login.html", {"request": request, "messages": messages})
+
+
+@app.post("/login")
+def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == form_data.username).first()
+    if not user:
+        raise HTTPException(status_code=400, detail="Incorrect username or password")
+
+    if not pwd_context.verify(form_data.password, user.password):
+        raise HTTPException(status_code=400, detail="Incorrect username or password")
+
+    response = RedirectResponse(url=f'/profile/{user.user_id}', status_code=303)
+    return response
 
 
 @app.exception_handler(Exception)

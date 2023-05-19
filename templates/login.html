@@ -29,15 +29,16 @@
         <a href="/" class="arrow-link">
           <i class="fas fa-arrow-circle-left"></i>
         </a>
+      </a>
           <div class="language-switch-dropdown" id="language-switch-dropdown">
-           <i class="fas fa-globe" id="language-globe"></i>
-           <div class="language-option-container" id="language-menu">
+            <i class="fas fa-globe" id="language-globe"></i>
+            <div class="language-option-container" id="language-menu">
                 <a href="#" class="language-option active" data-lang="ru">RU</a>
                 <a href="#" class="language-option" data-lang="en">EN</a>
                 <a href="#" class="language-option" data-lang="es">ES</a>
                 <a href="#" class="language-option" data-lang="ua">UA</a>
             </div>
-       </div>
+        </div>
     </div>
   </div>
   </nav>
@@ -47,13 +48,13 @@
         <div class="container">
           <h2 data-ru="Вход" data-en="Login" data-es="Iniciar sesión">Вход</h2>
           <p id="error-message" class="flashes">{{ message }}</p>
-          <form action="/auth/login" method="post">
+            <form action="/login" method="post">
           <label for="login-email" data-ru="Почта:" data-en="email:" data-es="email:">Эл.Почта:</label>
-          <input type="email" id="login-email" name="email" autocomplete="username" placeholder="Введите Электронную почту" required>
-          <label for="password" data-ru="Пароль:" data-en="Password:" data-es="Contraseña:">Пароль:</label>
-          <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Введите пароль" required>
-          <button type="submit" data-ru="Войти" data-en="Login" data-es="Iniciar sesión">Войти</button>
-        </form>
+                <input type="email" id="login-email" name="username" autocomplete="username" placeholder="Введите Электронную почту" required>
+                <label for="password" data-ru="Пароль:" data-en="Password:" data-es="Contraseña:">Пароль:</label>
+                <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Введите пароль" required>
+                <button type="submit" data-ru="Войти" data-en="Login" data-es="Iniciar sesión">Войти</button>
+            </form>
   <!-- Add "Forgot password?" link under the form -->
         <p class="forgot-password-link" data-ru="Забыли пароль?" data-en="Forgot password?" data-es="¿Olvidaste tu contraseña?">Забыли пароль?</p>
   <!-- Add modal with email input form -->

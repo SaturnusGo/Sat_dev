@@ -72,4 +72,46 @@ if (user_id) {
   getUserData(user_id);
 }
 
+$("#register_form").on("submit", function(e) {
+  e.preventDefault();
+
+  var email = $("#email").val();
+
+  $.ajax({
+    url: '/register/email',
+    type: 'POST',
+    data: JSON.stringify({email: email}),
+    contentType: 'application/json',
+    success: function(response) {
+      // переходите к следующему шагу регистрации
+    },
+    error: function(response) {
+      console.error(response);  // выводим полный ответ сервера
+    }
+  });
+});
+
+$(document).ready(function() {
+    $("#email").on("blur", function() {
+        var email = $(this).val();
+        $.ajax({
+            url: '/check_email',
+            method: 'POST',
+            data: {email: email},
+            success: function(data) {
+                if (data['exists']) {
+                    // Тут вы можете добавить вывод сообщения пользователю
+                    // с предложением восстановить доступ
+                    $(".error-msg").html("Пользователь с таким имейлом уже зарегистрирован. <a href='/recovery'>Восстановить доступ?</a>");
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+});
+
+
+
 
