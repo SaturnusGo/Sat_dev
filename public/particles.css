@@ -1,0 +1,28 @@
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px 10px rgba(51, 51, 51, 0.7);
+    z-index: 998;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+@media (min-width: 260px) {
+    #particles-js {
+        box-shadow: 0 0 5px 5px rgba(51, 51, 51, 0.7);
+    }
+}
+
+@media (min-width: 480px) {
+    #particles-js {
+        box-shadow: 0 0 7px 7px rgba(51, 51, 51, 0.7);
+    }
+}
+
+@media (min-width: 720px) {
+    #particles-js {
+        box-shadow: 0 0 10px 10px rgba(51, 51, 51, 0.7);
+    }
+}

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/public/login-footer.css">
   <link rel="stylesheet" href="/public/bc-btn.css">
   <link rel="stylesheet" href="/public/intro.css">
+    <link rel="stylesheet" href="/public/particles.css">
   <link rel="stylesheet" href="/public/language-switcher.css">
 </head>
 <body>
@@ -25,12 +26,12 @@
         <span class="logo-text">SaturnusGo</span>
          </div>
       <a href="" class="back-link">
-        <a href="/welcome" class="arrow-link">
+        <a href="/" class="arrow-link">
           <i class="fas fa-arrow-circle-left"></i>
         </a>
-       <div class="language-switch-dropdown" id="language-switch-dropdown">
-            <i class="fas fa-globe" id="language-globe"></i>
-            <div class="language-option-container" id="language-menu">
+          <div class="language-switch-dropdown" id="language-switch-dropdown">
+           <i class="fas fa-globe" id="language-globe"></i>
+           <div class="language-option-container" id="language-menu">
                 <a href="#" class="language-option active" data-lang="ru">RU</a>
                 <a href="#" class="language-option" data-lang="en">EN</a>
                 <a href="#" class="language-option" data-lang="es">ES</a>
@@ -39,14 +40,14 @@
        </div>
     </div>
   </div>
-</nav>
+  </nav>
   <main>
-    <div id="particles-js"></div>
-    <div class="content">
-      <div class="container">
-        <h2 data-ru="Вход" data-en="Login" data-es="Iniciar sesión">Вход</h2>
-        <p id="error-message" class="flashes">{{ message }}</p>
-        <form action="/auth/login" method="post">
+      <div id="particles-js"></div>
+      <div class="content">
+        <div class="container">
+          <h2 data-ru="Вход" data-en="Login" data-es="Iniciar sesión">Вход</h2>
+          <p id="error-message" class="flashes">{{ message }}</p>
+          <form action="/auth/login" method="post">
           <label for="login-email" data-ru="Почта:" data-en="email:" data-es="email:">Эл.Почта:</label>
           <input type="email" id="login-email" name="email" autocomplete="username" placeholder="Введите Электронную почту" required>
           <label for="password" data-ru="Пароль:" data-en="Password:" data-es="Contraseña:">Пароль:</label>
@@ -74,12 +75,12 @@
         <source src="/public/videos/car.mp4" type="video/mp4">
       </video>
     </div>
-    <footer>
-      <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados">SaturnusGo ©Все права защищены</p>
-      <div class="custom-container">
-        <p><a href="{{ url_for('get_register') }}" class="register-link" data-ru="Зарегистрируйтесь" data-en="Register" data-es="Regístrate">Зарегистрируйтесь</a></p>
-      </div>
-    </footer>
+      <footer>
+          <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados">SaturnusGo ©Все права защищены</p>
+          <div class="custom-container">
+              <p><a href="{{ url_for('get_register') }}" class="register-link" data-ru="Зарегистрируйтесь" data-en="Register" data-es="Regístrate">Зарегистрируйтесь</a></p>
+          </div>
+      </footer>
   </main>
     {% include 'loader.html' %}
 </body>
@@ -90,4 +91,3 @@
 <script src="/public/js/bck-btn-anim.js"></script>
 <script src="/public/js/login-form.js"></script>
 </html>
-

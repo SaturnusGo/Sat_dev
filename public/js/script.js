@@ -45,33 +45,78 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const submitBtn = document.getElementById("submit-btn");
-    const loginOptions = document.querySelectorAll(".input-checkbox");
+  const submitBtn = document.getElementById("submit-btn");
+  const loginOptions = document.querySelectorAll(".input-checkbox");
 
-    submitBtn.addEventListener("click", function () {
-        let selectedOption;
-        loginOptions.forEach(function (option, index) {
-            if (option.checked) {
-                selectedOption = index;
-            }
-        });
-
-        if (selectedOption === 0) {
-            // Редирект на страницу входа в аккаунт
-            window.location.href = "/login";
-        } else if (selectedOption === 1) {
-            // Редирект на страницу входа по номеру телефона
-            window.location.href = "#";
-        } else {
-            alert("Пожалуйста, выберите одну из опций");
-        }
+  submitBtn.addEventListener("click", function () {
+    let selectedOption;
+    loginOptions.forEach(function (option, index) {
+      if (option.checked) {
+        selectedOption = index;
+      }
     });
+
+    if (selectedOption === 0) {
+      // Редирект на страницу входа в аккаунт
+      window.location.href = "/login";
+    } else if (selectedOption === 1) {
+      // Редирект на страницу входа по номеру телефона
+      window.location.href = "#";
+    } else {
+      alert("Пожалуйста, выберите одну из опций");
+    }
+  });
 });
 
 function handleLabelClick(event) {
-    event.preventDefault();
-    const radioInput = event.target.previousElementSibling;
-    radioInput.checked = !radioInput.checked;
+  event.preventDefault();
+  const radioInput = event.target.previousElementSibling;
+  radioInput.checked = !radioInput.checked;
 }
 
+var accessButton = document.getElementById('access-button');
+var nextButton = document.getElementById('next-button');
+
+accessButton.addEventListener('click', function () {
+  accessButton.classList.add('outlined');
+  nextButton.classList.add('blinking');
+  // отображаем предупреждение или модальное окно здесь
+  modal("Пожалуйста, нажмите 'Next' для продолжения");
+  // вы можете заменить alert на открытие модального окна, если вам это нужно
+});
+
+nextButton.addEventListener('click', function () {
+  // выполняем переход на другую страницу здесь
+  window.location.href = "/register";
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkboxes = document.querySelectorAll('.input-checkbox');
+  const submitButton = document.getElementById('submit-btn');
+
+  // Функция для мигания кнопки submit
+  function blinkSubmitButton() {
+    submitButton.classList.add('blinking');
+    setTimeout(function () {
+      submitButton.classList.remove('blinking');
+    }, 1000);
+  }
+
+  // Обработчик клика на чекбокс
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+      blinkSubmitButton();
+    });
+  });
+
+  // Обработчик клика на кнопку submit
+  submitButton.addEventListener('click', function () {
+    blinkSubmitButton();
+  });
+});
+
+function modal(message) {
+  // Ваш код для отображения модального окна здесь
+  // Например, можно использовать Bootstrap Modal или создать свое собственное модальное окно
+}
 

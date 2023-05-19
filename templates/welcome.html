@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/public/welcome_title.css">
     <link rel="stylesheet" href="/public/styles.css">
     <link rel="stylesheet" href="/public/style_navbar.css">
+    <link rel="stylesheet" href="/public/login-footer.css">
     <link rel="stylesheet" href="/public/modal.css">
 </head>
 <body>
@@ -48,47 +49,48 @@
             <span class="and">&</span>
             <span class="drive">D  R  I  V  E</span>
         </h3>
-    =</div>
+    </div>
 </div>
 <div class="form-structor">
     <div class="signup">
         <h2 class="form-title" id="signup" data-ru="или Зарегистрироваться" data-en="or Sign up" data-es="o Registrarse" data-ua="або Зареєструватися"><span>or</span>Sign up</h2>
         <div class="form-holder">
-          <a href="/register" type="button" id="access-button" class="input" data-ru="Получить полный доступ" data-en="Get full access" data-es="Obtener acceso completo" data-ua="Отримати повний доступ">Получить полный доступ</a>
+            <button type="button" id="access-button" class="input" data-ru="Получить полный доступ" data-en="Get full access" data-es="Obtener acceso completo" data-ua="Отримати повний доступ">Получить полный доступ</button>
           <a href="/404" type="button" id="email-button" class="input" data-ru="Email" data-en="Email" data-es="Email" data-ua="Войти с FaceBook">Войти с FaceBook</a>
           <a href="/404" type="button" id="password-button" class="input" data-ru="Пароль" data-en="Password" data-es="Contraseña" data-ua="Войти с Google">Войти с Google</a>
             <div class="modal" id="google-modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
-                    <h2>Войти с помощью соц-сетей</h2>
+                    <h2>Тут будет API</h2>
     <!-- Здесь может быть содержимое вашего модального окна -->
                 </div>
             </div>
 
         </div>
-        <button class="submit-btn" data-ru="Далее" data-en="Next" data-es="Siguiente" data-ua="Далі">Next</button>
+        <button class="submit-btn" id="next-button" data-ru="Далее" data-en="Next" data-es="Siguiente" data-ua="Далі">Next</button>
     </div>
     <div class="login slide-up">
-        <div class="center">
-            <h2 class="form-title" id="login"><span>или</span>Войти</h2>
-            <div class="form-holder">
-                <label class="input-container">
-                    <input type="radio" class="input-checkbox" name="login-option" />
-                    <a href="/register" class="input" data-placeholder="" onclick="handleLabelClick(event)">Войти в аккаунт</a>
-                    <span class="checkmark"></span>
-                </label>
-                <label class="input-container">
-                    <input type="radio" class="input-checkbox" name="login-option" />
-                    <a href="/404" class="input" data-placeholder="" onclick="handleLabelClick(event)">Войти по номеру телефона</a>
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <button class="submit-btn" id="submit-btn" data-ru="Далее" data-en="Next" data-es="Siguiente" data-ua="Далі">Next</button>
+    <div class="center">
+        <h2 class="form-title" id="login"><span>или</span>Войти</h2>
+        <div class="form-holder">
+            <label class="input-container">
+                <input type="radio" class="input-checkbox" name="login-option" />
+                <a href="/register" class="input" data-placeholder="" onclick="handleLabelClick(event)">Войти в аккаунт</a>
+                <span class="checkmark"></span>
+            </label>
+            <label class="input-container">
+                <input type="radio" class="input-checkbox" name="login-option" />
+                <a href="/404" class="input" data-placeholder="" onclick="handleLabelClick(event)">Войти по номеру телефона</a>
+                <span class="checkmark"></span>
+            </label>
         </div>
+        <button class="submit-btn" id="submit-btn" data-ru="Далее" data-en="Next" data-es="Siguiente" data-ua="Далі">Next</button>
     </div>
 </div>
+
 <footer>
-    <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados" data-ua="SaturnusGo ©Усі права захищені">SaturnusGo ©Все права защищены</p>
+    <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados">SaturnusGo ©Все права защищены</p>
+    <div class="custom-container">
 </footer>
 <script src="/public/js/languages-login.js"></script>
 <script src="/public/js/side-bar.js"></script>

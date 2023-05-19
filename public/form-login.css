@@ -1,65 +1,182 @@
-/* Small devices (landscape phones, 260px and up) */
-@media (min-width: 260px) {
-    h2 {
-        font-size: 18px;
-    }
-
-    .container {
-        padding: 20px;
-        position: relative; /* Added */
-        top: -20px; /* Replace with the desired value */
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="password"] {
-        font-size: 14px;
-        padding: 8px;
-    }
+:root {
+    --main-font: 'Roboto', sans-serif;
+    --main-color-light: #ccc;
+    --bg-color: rgba(0, 0, 0, 0.8);
+    --box-shadow-color: rgba(0, 0, 0, 0.2);
+    --accent-color: #000;
+    --accent-color-hover: #333;
+    --error-color: #ffc107;
+    --form-bg-color: rgba(0, 0, 0, 0.6);
 }
-/* Medium devices (tablets, 480px and up) */
-@media (min-width: 480px) {
-    h2 {
-        font-size: 24px;
-    }
 
-    .container {
-        padding: 30px;
-        position: static; /* Added */
-        top: auto; /* Added */
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="password"] {
-        font-size: 16px;
-        padding: 10px;
-    }
+body {
+    font-family: var(--main-font);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    position: relative;
 }
-/* Large devices (desktops, 720px and up) */
-@media (min-width: 720px) {
-    h2 {
-        font-size: 30px;
-    }
 
-    .container {
-        padding: 40px;
-        position: static; /* Added */
-        top: auto; /* Added */
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="password"] {
-        font-size: 18px;
-        padding: 12px;
-    }
+main {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    overflow: auto;
 }
-h2 {
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+button[type="submit"] {
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
     color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }
 
-/* ... */
+button[type="submit"]:hover {
+    background-color: var(--accent-color-hover);
+}
+
+#myVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px 10px rgba(51, 51, 51, 0.7);
+    z-index: 998;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+@media (min-width: 260px) {
+    #particles-js {
+        box-shadow: 0 0 5px 5px rgba(51, 51, 51, 0.7);
+    }
+}
+
+@media (min-width: 480px) {
+    #particles-js {
+        box-shadow: 0 0 7px 7px rgba(51, 51, 51, 0.7);
+    }
+}
+
+@media (min-width: 720px) {
+    #particles-js {
+        box-shadow: 0 0 10px 10px rgba(51, 51, 51, 0.7);
+    }
+}
+
+@media screen and (max-width: 768px) {
+.container {
+width: 95%;
+}
+
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+label {
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    font-size: 16px;
+}
+}
+
+@media screen and (max-width: 480px) {
+.container {
+width: 90%;
+}
+
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+label {
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+    font-size: 14px;
+}
+
+button[type="submit"] {
+    font-size: 14px;
+}
+}
+
+@media screen and (max-width: 320px) {
+h1 {
+font-size: 20px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+label {
+    font-size: 12px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+    font-size: 12px;
+}
+
+button[type="submit"] {
+    font-size: 12px;
+}
+}
 
 .container {
     background-color: rgba(0, 0, 0, 0.5);
@@ -256,6 +373,258 @@ input:invalid {
   border-color: red;
 }
 
+form {
+  opacity: 0.8;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+/* Small devices (landscape phones, 260px and up) */
+@media (min-width: 260px) {
+    h2 {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Medium devices (tablets, 480px and up) */
+@media (min-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    .container {
+        padding: 30px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"] {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+/* Large devices (desktops, 720px and up) */
+@media (min-width: 720px) {
+    h2 {
+        font-size: 30px;
+    }
+
+    .container {
+        padding: 40px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"] {
+        font-size: 18px;
+        padding: 12px;
+    }
+}
+
+h2 {
+    color: #fff;
+}
+
+/* ... */
+
+.container {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    z-index: 999;
+}
+
+/* ... */
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    background-color: transparent; /* Updated background-color */
+    color: #fff; /* Keep text color as white */
+    border: 1px solid #ffffff; /* Updated border color */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color var(--input-animation-duration) ease;
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="password"]::placeholder {
+    color: #888;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus {
+    outline: none;
+    border-color: #ffffff; /* Updated border color */
+    /* Remove the line with animation: input-focus-animation var(--input-animation-duration) ease; */
+}
+
+input[type="text"]:focus {
+    box-shadow: none; /* Remove orange glow */
+}
+
+label {
+    color: #ffffff;
+}
+/* Forgot password link */
+.forgot-password-link {
+  cursor: pointer;
+  color: white;
+  text-decoration: underline;
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 0.75rem; /* Устанавливаем размер шрифта на 0.75rem */
+
+}
+
+/* Email input style */
+#forgot-password-form input[type="email"] {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid white;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+#forgot-password-form input[type="email"]:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+
+#forgot-password-form .back-btn {
+  background-color: #000;
+  color: white;
+  border: 1px solid white;
+}
+
+#forgot-password-form .back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid white;
+  margin: 15% auto;
+  padding: 2rem;
+  width: 30%;
+  position: relative;
+  border-radius: 5px;
+  z-index: 1; /* Change this value */
+}
+
+.modal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal.fadeInDown {
+  animation: fadeInDown 300ms forwards;
+}
+
+
+.close {
+  color: white;
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.back-btn {
+  background-color: #000;
+  color: white;
+  border: 1px solid white;
+  margin-top: 1rem;
+}
+
+/* Labels style */
+#forgot-password-form label {
+  display: block;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Form style */
+#forgot-password-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add a subtle box-shadow to the modal */
+.modal-content {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Input error */
+input:invalid {
+  border-color: red;
+}
+
 /* 320px */
 @media (max-width: 320px) {
   .modal-content {
@@ -296,29 +665,4 @@ input:invalid {
   }
 }
 
-form {
-  opacity: 0.8;
-}
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-input {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-  background-color: transparent;
-}
-
-@media (min-width: 280px) and (max-width: 320px) {
-  .form-container {
-    position: relative; /* Added */
-    top: -20px; /* Replace with the desired value */
-  }
-}

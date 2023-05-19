@@ -655,9 +655,43 @@ width: 90%;
     background-color: #333;
   }
 
+  @media screen and (max-width: 320px) {
+  /* стили для iPhone 5/SE */
+  .form-structor {
+    height: 400px;
+    width: 280px;
+  }
+  .signup, .login {
+    width: 280px;
+  }
+}
 
+@media screen and (max-width: 375px) {
+  /* стили для iPhone 6/6S/7/8 */
+  .form-structor {
+    height: 450px;
+    width: 325px;
+  }
+  .signup, .login {
+    width: 325px;
+  }
+}
 
+.outlined {
+    border: 2px dashed #000;
+    outline-offset: 5px;
+    /* Если обводка все еще не видна, попробуйте использовать border вместо outline: */
+    /* border: 2px dashed #000; */
+}
 
+.blinking {
+  animation: blink 1s infinite;
+}
 
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
 
