@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/png" href="/public/videos/favicon.jpg">
+    <title>Чат</title>
+    <link rel="stylesheet" href="/public/chat_driver.css">
+</head>
+<body>
+    <h1>Чат</h1>
+    <form action="" onsubmit="sendDriverMessage(event)">
+        <input type="text" id="messageInput" autocomplete="off" placeholder="Type a message"/>
+        <button>Send</button>
+    </form>
+    <div class="chat-container">
+      <ul id="messages">
+        <li class="message">Здравствуйте! Я подъехал!</li>
+        <li class="message driver">Я вас не вижу</li>
+        <li class="message">Отлично! Спасибо за поездку</li>
+      </ul>
+    </div>
+</body>
+<script src="/public/js/chat.js"></script>
+<script src="/public/js/driver_chat.js"></script>
+</html>

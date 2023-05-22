@@ -16,6 +16,10 @@ from fastapi.responses import JSONResponse
 from fastapi import APIRouter
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordRequestForm
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from typing import List
+from typing import Dict
+from starlette.websockets import WebSocketState
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -52,6 +56,74 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+class Connection:
+    def __init__(self, websocket: WebSocket, user_type: str):
+        self.websocket = websocket
+        self.user_type = user_type
+
+    async def send_message(self, message: str):
+        await self.websocket.send_text(message)
+
+
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: Dict[WebSocket, Connection] = {}
+
+    async def connect(self, websocket: WebSocket, user_type: str):
+        connection = Connection(websocket, user_type)
+        await websocket.accept()
+        self.active_connections[websocket] = connection
+
+    async def disconnect(self, websocket: WebSocket):
+        connection = self.active_connections.pop(websocket, None)
+        if connection and websocket.application_state != WebSocketState.DISCONNECTED:
+            await connection.websocket.close()
+
+    async def send_personal_message(self, message: str, websocket: WebSocket):
+        connection = self.active_connections.get(websocket)
+        if connection:
+            await connection.send_message(message)
+
+    async def broadcast_message(self, message: str):
+        for connection in self.active_connections.values():
+            await connection.send_message(message)
+
+
+connection_manager = ConnectionManager()
+
+
+@app.websocket("/passenger_ws")
+async def passenger_websocket_endpoint(websocket: WebSocket):
+    await connection_manager.connect(websocket, "passenger")
+    try:
+        while True:
+            data = await websocket.receive_text()
+            await connection_manager.broadcast_message(f"Passenger message: {data}")
+    except WebSocketDisconnect:
+        await connection_manager.disconnect(websocket)
+
+
+@app.websocket("/driver_ws")
+async def driver_websocket_endpoint(websocket: WebSocket):
+    await connection_manager.connect(websocket, "driver")
+    try:
+        while True:
+            data = await websocket.receive_text()
+            await connection_manager.broadcast_message(f"Driver message: {data}")
+    except WebSocketDisconnect:
+        await connection_manager.disconnect(websocket)
+
+
+@app.get("/passenger_chat", response_class=HTMLResponse)
+async def get_passenger_chat(request: Request):
+    return templates.TemplateResponse("passenger_chat.html", {"request": request})
+
+
+@app.get("/driver_chat", response_class=HTMLResponse)
+async def get_driver_chat(request: Request):
+    return templates.TemplateResponse("driver_chat.html", {"request": request})
 
 
 def verify_password(db: Session, user_id: int, password: str) -> bool:

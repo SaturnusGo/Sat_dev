@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function setDefaultLanguageBasedOnRegionAndCountry(region, country) {
-    let defaultLanguage = 'es';
-    if (region === 'ru') {
-      defaultLanguage = 'ru';
+    let defaultLanguage = 'ru';
+    if (region === 'en') {
+      defaultLanguage = 'en';
     }
     const defaultLanguageOption = document.querySelector(`.language-option[data-lang="${defaultLanguage}"]`);
     defaultLanguageOption.classList.add('active');

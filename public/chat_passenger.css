@@ -1,0 +1,772 @@
+Вот все стили
+@import url(//fonts.googleapis.com/icon?family=Material+Icons);
+
+:root {
+  --primary-color: #fff;
+  --secondary-color: #333;
+  --primary-bg-color: #f8f8f8;
+  --secondary-bg-color: #fff;
+  --primary-text-color: #fff;
+  --secondary-text-color: #000;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);  padding: 20px;
+  position: fixed;
+  display: fixed;
+  min-height: 100vh;
+  margin: 0;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.chat-bar__toggle:hover {
+  animation: scale-up 0.3s ease-in-out 1;
+}
+
+
+.chat-bar {
+  background: #000;
+  border-radius: 36px;
+  padding: 2%;
+  display: flex;
+  position: relative; /* здесь изменено значение с relative на fixed */
+  bottom: 0; /* добавлено для закрепления на нижней части страницы */
+  left: 0; /* добавлено для расположения в левой части страницы */
+  right: 0; /* добавлено для расположения в правой части страницы */
+  transform-origin: calc(0.5em + 18px) 50%;
+  width: 100%;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  z-index: 1;
+}
+
+
+.message-sent {
+  position: relative;
+  background-color: var(--secondary-bg-color); /* Изменен на вторичный фоновый цвет */
+  color: var(--secondary-text-color) !important; /* Изменен на вторичный цвет текста с использованием !important */
+  text-align: right; /* Правый текст */
+  border-radius: 18px; /* Округлить углы сообщений */
+  margin-left: 20px; /* Добавить немного отступа слева, чтобы сообщения не прилипали к левой стороне */
+  z-index: 1;
+}
+
+
+.chat-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  margin-top: 60px; /* Сделайте это значение больше или меньше в зависимости от высоты вашего navbar */
+}
+
+
+.chat-bar__toggle {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+.chat-bar__toggle:hover {
+  animation: scale-up 0.3s ease-in-out 1;
+}
+
+.chat-bar__toggle .material-icons {
+  font-size: 24px;
+}
+
+.chat-bar__message,
+.chat-bar__buttons {
+  transform-origin: calc(-1em - 18px) 50%;
+  width: 190px;
+  transition: 0.2s ease-out;
+  position: relative;
+  padding-left: 1em;
+}
+
+.chat-bar__input {
+  background: rgba(255, 255, 255, 0.3);
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 18px;
+  width: 1000px; /* Изменено значение на 1000px или другое подходящее значение */
+  border: 0;
+  padding: 1em;
+  color: white;
+  flex: 1;
+}
+
+.chat-bar__message {
+  transform-origin: calc(-1em - 18px) 50%;
+  transition: 0.2s ease-out;
+  position: relative;
+  padding-left: 1em;
+  width: 750px; /* Удалено значение width */
+}
+
+
+.chat-bar__input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.chat-bar__input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.chat-bar__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.chat-bar__buttons {
+  position: absolute;
+  display: flex;
+  left: calc(36px + 1em);
+  justify-content: space-between;
+  width: 190px;
+  transform: rotate(90deg);
+}
+
+.chat-bar.--is-active .chat-bar__toggle {
+  transform: rotateZ(-135deg);
+}
+
+.chat-bar.--is-active .chat-bar__message {
+  transform: rotate(-90deg);
+}
+
+.chat-bar.--is-active .chat-bar__buttons {
+  transform: rotate(0);
+}
+
+.chat-bar.--is-active .chat-bar__buttons .button {
+  animation-name: lift;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-duration: 0.25s;
+}
+
+.chat-bar.--bop {
+  animation: bop 0.6s forwards;
+}
+
+.chat-bar.--drop {
+  animation: drop 0.6s forwards;
+}
+
+.button {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 18px;
+  transform: translateY(50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.b-1 {
+  animation-delay: 0.075s;
+}
+
+.b-2 {
+  animation-delay: 0.15s;
+}
+
+.b-3 {
+  animation-delay: 0.225s;
+}
+
+.b-4 {
+  animation-delay: 0.3s;
+}
+
+@keyframes bop {
+  0%, 100% {
+    transform: rotateZ(0);
+  }
+  66% {
+    transform: rotateZ(-10deg);
+  }
+}
+
+@keyframes drop {
+  0%, 100% {
+    transform: rotateZ(0);
+  }
+  66% {
+    transform: rotateZ(10deg);
+  }
+}
+
+@keyframes lift {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
+}
+
+.material-icons {
+  color: white;
+}
+
+.sidenote {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  font-family: Arial;
+  color: #714efc;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.sidenote:hover {
+  text-decoration: underline;
+}
+
+.sidenote i {
+  color: #714efc;
+  font-size: 1em;
+  line-height: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+}
+
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 1500px;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+  overflow-y: auto;
+}
+
+li.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  color: #000;
+  font-size: 14px;
+  margin: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 60px;#
+}
+
+.swiper-container {
+  width: 100%;
+  height: 300px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Медиа-запросы для мобильных устройств */
+
+/* Планшет и ниже */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .chat-bar {
+    padding: 2%;
+  }
+
+  .chat-bar__input {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .chat-bar__message,
+  .chat-bar__buttons {
+    width: 150px;
+  }
+
+  .chat-bar__toggle {
+    height: 30px;
+    width: 30px;
+  }
+
+  .button {
+    width: 30px;
+    height: 30px;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  ul {
+    margin-bottom: 5px;
+  }
+
+  li.message {
+    padding: 8px;
+    margin: 5px;
+    font-size: 12px;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+
+  .chat-bar {
+    padding: 1%;
+  }
+
+  .chat-bar__input {
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .chat-bar__message,
+  .chat-bar__buttons {
+    width: 100px;
+  }
+
+  .chat-bar__toggle {
+    height: 24px;
+    width: 24px;
+  }
+
+  .button {
+    width: 24px;
+    height: 24px;
+  }
+
+  input[type="text"] {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  ul {
+    margin-bottom: 3px;
+  }
+
+  li.message {
+    padding: 6px;
+    margin: 3px;
+    font-size: 10px;
+  }
+}
+.message.message-sent {
+    color: #000000; /* Черный цвет текста */
+    /* Добавьте другие стили здесь */
+}
+.navbar {
+    width: 100%;    /* Это заставит хедер занимать всю ширину экрана */
+    height: 50px;   /* Это уменьшит высоту хедера. Измените это значение в зависимости от желаемой высоты */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;  /* Это значение позволит хедеру оставаться поверх остального контента */
+}
+
+
+
+.navbar h1 {
+    font-size: 1.5em; /* Регулируйте размер шрифта по своему усмотрению */
+    color: #fff;
+    margin: 0;
+    padding: 5px 0; /* Это поможет выровнять текст по вертикали */
+}
+
+/* Планшет и ниже */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .chat-bar {
+    padding: 2%;
+  }
+
+  .chat-bar__input {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .chat-bar__message,
+  .chat-bar__buttons {
+    width: 150px;
+  }
+
+  .chat-bar__toggle {
+    height: 30px;
+    width: 30px;
+  }
+
+  .button {
+    width: 30px;
+    height: 30px;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  ul {
+    margin-bottom: 5px;
+  }
+
+  li.message {
+    padding: 8px;
+    margin: 5px;
+    font-size: 12px;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+
+  .chat-bar {
+    padding: 1%;
+  }
+
+  .chat-bar__input {
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .chat-bar__message,
+  .chat-bar__buttons {
+    width: 100px;
+  }
+
+  .chat-bar__toggle {
+    height: 24px;
+    width: 24px;
+  }
+
+  .button {
+    width: 24px;
+    height: 24px;
+  }
+
+  input[type="text"] {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  ul {
+    margin-bottom: 3px;
+  }
+
+  li.message {
+    padding: 6px;
+    margin: 3px;
+    font-size: 10px;
+  }
+}
+
+/* Очень маленькие мобильные устройства */
+@media (max-width: 320px) {
+  body {
+    padding: 3px;
+  }
+
+  .chat-bar {
+    padding: 1%;
+  }
+
+  .chat-bar__input {
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .chat-bar__message,
+  .chat-bar__buttons {
+    width: 80px;
+  }
+
+  .chat-bar__toggle {
+    height: 20px;
+    width: 20px;
+  }
+
+  .button {
+    width: 20px;
+    height: 20px;
+  }
+
+  input[type="text"] {
+    padding: 4px;
+    font-size: 10px;
+  }
+
+  ul {
+    margin-bottom: 2px;
+  }
+
+  li.message {
+    padding: 4px;
+    margin: 2px;
+    font-size: 8px;
+  }
+}
+
+/* Горизонтальная ориентация */
+@media (orientation: landscape) {
+  body {
+    padding: 10px;
+  }
+
+  .chat-bar {
+    padding: 2%;
+  }
+
+  .chat-bar__input {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .chat-bar__message,
+  .chat-bar__buttons {
+    width: 150px;
+  }
+
+  .chat-bar__toggle {
+    height: 30px;
+    width: 30px;
+  }
+
+  .button {
+    width: 30px;
+    height: 30px;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  ul {
+    margin-bottom: 5px;
+  }
+
+  li.message {
+    padding: 8px;
+    margin: 5px;
+    font-size: 12px;
+  }
+}
+
+/* Мобильные устройства с большими экранами */
+@media (min-width: 480px) and (max-width: 767px) {
+  body {
+    padding: 8px;
+  }
+
+  .chat-bar {
+    padding: 1.5%;
+  }
+
+  .chat-bar__input {
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .chat-bar__message,
+  .chat-bar__buttons {
+    width: 120px;
+  }
+
+  .chat-bar__toggle {
+    height: 26px;
+    width: 26px;
+  }
+
+  .button {
+    width: 26px;
+    height: 26px;
+  }
+
+  input[type="text"] {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  ul {
+    margin-bottom: 4px;
+  }
+
+  li.message {
+    padding: 6px;
+    margin: 4px;
+    font-size: 10px;
+  }
+}
+
+/* Мобильные устройства с высокой плотностью пикселей */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    padding: 16px;
+  }
+
+  .chat-bar {
+    padding: 3%;
+  }
+
+  .chat-bar__input {
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .chat-bar__message,
+  .chat-bar__buttons {
+    width: 180px;
+  }
+
+  .chat-bar__toggle {
+    height: 38px;
+    width: 38px;
+  }
+
+  .button {
+    width: 38px;
+    height: 38px;
+  }
+
+  input[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  ul {
+    margin-bottom: 8px;
+  }
+
+  li.message {
+    padding: 12px;
+    margin: 8px;
+    font-size: 14px;
+  }
+}
+/* Мобильные устройства */
+@media (max-width: 480px) {
+  .chat-bar__input {
+    width: 100%; /* Задаем ширину инпута 100% */
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 480px) {
+  .chat-bar__input {
+    width: 100%; /* Задаем ширину полю ввода 100% */
+    padding: 8px; /* Увеличиваем отступы для лучшего визуального эффекта */
+    font-size: 14px; /* Устанавливаем более удобный размер шрифта для мобильных устройств */
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 480px) {
+  input[type="text"] {
+    width: 100%; /* Задаем ширину полю ввода типа "text" 100% */
+    padding: 8px; /* Увеличиваем отступы для лучшего визуального эффекта */
+    font-size: 14px; /* Устанавливаем более удобный размер шрифта для мобильных устройств */
+  }
+}

@@ -1,0 +1,163 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  padding: 20px;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-bottom: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #000;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 60px; /* Высота футера */
+  overflow-y: auto;
+}
+
+li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  color: #000;
+  font-size: 14px;
+}
+
+li.driver {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Адаптация для мобильных устройств */
+@media only screen and (max-width: 320px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  li {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 467px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input[type="text"] {
+    font-size: 16px;
+  }
+
+  li {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 468px) and (max-width: 525px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  input[type="text"] {
+    font-size: 18px;
+  }
+
+  li {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 526px) and (max-width: 767px) {
+  body {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  input[type="text"] {
+    font-size: 20px;
+  }
+
+  li {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 980px) {
+  body {
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  input[type="text"] {
+    font-size: 22px;
+  }
+
+  li {
+    font-size: 20px;
+  }
+}

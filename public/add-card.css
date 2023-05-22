@@ -1,365 +1,321 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap");
-
-.main{
-    min-height: 90vh;
-    display: flex;
-    padding: 50px 15px;
-    justify-content: center;
-    transform-style: preserve-3d;
-    position: absolute;
-    top: 15%;
-    left: 0;
-    right: 0;
-    /* bottom: 0; */
-    margin: auto;
-
-}
-select{
-    -webkit-appearance: none;
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC");
-    background-size: 12px;
-    background-position: 90% center;
-    background-repeat: no-repeat;
-    padding-right: 30px;
-}
-textarea:focus, input:focus{
-    outline: none;
-    outline: none !important;
-    border-color: #007bff;
-    border-width: 1.5px;
-    box-shadow: 0 0 5px #719ECE;
-}
-.submitbu{
-    box-shadow: 1px 9px 20px -6px rgb(35 100 210);
-    color: white !important;
-}
-.form{
-    border-radius: 16px;
-    box-shadow: -3px 20px 75px -1px rgb(0 0 0 / 44%);
-    /* box-shadow: 1px -3px 20px 3px rgb(0 0 0 / 75%); */
-    position: relative;
-    min-width: 570px;
-    background-color: white;
-    justify-content: center;
-    display: flex;
-    /* transform: translateZ(50px); */
-    perspective: 2000px;
-}
-.name{
-    color: white;
-}
-body{
-     background: black;
-    font-family: "Source Sans Pro", sans-serif;
-}
-.card{
-    /* box-shadow: 1px -3px 20px 3px rgb(0 0 0 / 75%); */
-    box-shadow: -2px 5px 39px 0px rgb(0 0 0 / 75%);
-    top: -20%;
-    position: absolute;
-    border-radius: 15px;
-    transform: rotateY(0deg);
-    transition: transform ease-in 1s;
-        /* min-width: 80%; */
-        transform-style: preserve-3d;
- position: relative;
-     /* min-width: 80%; */
-     width: 80%;
-     height: 45%;
-     background-image: url(https://img.freepik.com/free-vector/multicolored-abstract-background_23-2148463672.jpg?w=2000);
-     background-size: cover;
-        /* min-width: 80%; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-}
-/* https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png */
-.box{
-    height: 85%;
-    width: 90%;
-    z-index: 5;
-}
-.visaimage{
-    height: 26%;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    margin-top: 23px;
-}
-.visaimage img{
-    height: 80%;
-}
-.visaicon{
-    width: 100%;
-    height: 22%;
-    position: relative;
-}
-.visaicon img{
-    height: 100%;
-}
-.numberdigit{
-    width: 100%;
-    justify-content: center;
-    margin-top: 10%;
-    height: 22%;
-        /* border: solid 2px #fcc8c8; */
-    align-items: center;
-    display: flex;
-}
-.numberdigital{
-    overflow: hidden;
-    justify-content: center;
-    display: flex;
-    color: white;
-    font-weight: 700;
-    width: 24%;
-    font-size: 30px;
-    position: relative;
-}
-.numberdigital div:not(:first-child) {
-    margin-left: 4px;
-}
-.card:before {
-    border-radius: 15px;
-
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #0f0f0f center center;
-    opacity: 0.4;
-}
-.cardholder{
-    display: flex;
-    width: 100%;
-    height: 25%;
-    /* border: solid; */
-    margin-top: 10%;
-}
-.holder{
-    width: 80%;
-    height: 100%;
-}
-.expire{
-    height: 100%;
-    width: 20%;
-}
-.fixed{
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    word-spacing: 6px;
-}
-.propermonth span{
-    font-size: 20px;
-}
-.formdetail{
-    position: absolute;
-    height: 65%;
-    width: 86%;
-    bottom: 0%;
-}
-.thirdcol{
-    margin-top: 5%;
-}
-.thirdcol span{
-    height: 30%;
-    font-size: 13px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.thirdcol select{
-    font-size: 15px;
-    letter-spacing: 1px;
-    height: 70%;
-        /* display: flex; */
-    /* text-align: center; */
-    padding: 10px;
-    /* justify-content: center; */
-}
-.thirdcol input{
-    height: 65%;
-}
-.border {
-    position: absolute;
-    opacity: 0;
-    border-radius: 6px;
-    border: white solid 2px;
-    /* transition: all ease-in 1s; */
-    /* transition: all ease-in 1s; */
-
-}
-.cardback{
-          /* transform: translateZ(-23px); */
-          border-radius: 15px;
-
-    background-image: url(https://img.freepik.com/free-vector/multicolored-abstract-background_23-2148463672.jpg?w=2000);
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    transform: translateZ(-1px) rotateY(180deg);
-    align-items: center;
-    transform-style: preserve-3d;
-    overflow: hidden;
-}
-.boxi{
-    height: 80%;
-    width: 90%;
-    z-index: 5;
-    position: absolute;
-}
-.blackslip{
-    width: 114%;
-    background: black;
-    height: 25%;
-    position: relative;
-    left: -21px;
-}
-.cvv span{
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-    display: block;
-    height: 10%;
-    display: flex;
-    align-content: inherit;
-    flex-direction: row-reverse;
-    margin-bottom: 15px;
-    transform: translateX(-6px);
-    letter-spacing: 1px;
-}
-.cvvwhite{
-    width: 100%;
-    height: 70%;
-    border-radius: 4px;
-    background: white;
-}
-.cvv{
-    height: 34%;
-    width: 100%;
-    margin-top: 5%;
-
-}
-.backgroundw{
-    position: fixed ;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #0f0f0f center center;
-    opacity: 0.4;
-}
-.updownnumber{
-    position: relative;
-    top: 0px;
-    transition: top 500ms ease;
+html,
+body {
+  min-height: 100%;
+  font-family: "Open Sans", sans-serif;
 }
 
-.cardnumberinput{
-    font-size: 19px;
-    padding: 1px 13px;
-
-}
-.holdernameofuser{
-    position: absolute;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    word-spacing: -3px;
-}
-.propername{
-    overflow: hidden;
-    position: relative;
-}
-.fixed{
-        position: relative;
-
-}
-.activeturn{
-    transform: rotateY(180deg);
-}
-.cardholderinput{
-    font-size: 19px;
-    padding: 1px 13px;
-    text-transform: uppercase;
-}
-.active{
-    top: -38px;
+body {
+  background: linear-gradient(50deg, #f3c680, #a1e3e2);
 }
 
-/* Для разрешения меньше 600px */
-@media (max-width: 600px) {
-.main {
-top: 10%;
-padding: 30px 10px;
+/*--------------------
+Buttons
+--------------------*/
+.btn {
+  display: block;
+  background: #bded7d;
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
+  padding: 15px 15px;
+  border-radius: 5px;
+  position: relative;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0), 0 3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.btn:hover::after {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.2);
 }
 
-.form {
-min-width: 90%;
+/*--------------------
+Form
+--------------------*/
+.form fieldset {
+  border: none;
+  padding: 0;
+  padding: 10px 0;
+  position: relative;
+  clear: both;
+}
+.form fieldset.fieldset-expiration {
+  float: left;
+  width: 60%;
+}
+.form fieldset.fieldset-expiration .select {
+  width: 84px;
+  margin-right: 12px;
+  float: left;
+}
+.form fieldset.fieldset-ccv {
+  clear: none;
+  float: right;
+  width: 86px;
+}
+.form fieldset label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: Inconsolata;
+}
+.form fieldset input,
+.form fieldset .select {
+  width: 100%;
+  height: 38px;
+  color: #333333;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  outline: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.form fieldset input.input-cart-number,
+.form fieldset .select.input-cart-number {
+  width: 82px;
+  display: inline-block;
+  margin-right: 8px;
+}
+.form fieldset input.input-cart-number:last-child,
+.form fieldset .select.input-cart-number:last-child {
+  margin-right: 0;
+}
+.form fieldset .select {
+  position: relative;
+}
+.form fieldset .select::after {
+  content: "";
+  border-top: 8px solid #222;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  right: 10px;
+  pointer-events: none;
+}
+.form fieldset .select select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  padding: 0;
+  border: none;
+  width: 100%;
+  outline: none !important;
+  top: 6px;
+  left: 6px;
+  background: none;
+}
+.form fieldset .select select :-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+.form button {
+  width: 100%;
+  outline: none !important;
+  background: linear-gradient(180deg, #49a09b, #3d8291);
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  box-shadow: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin-top: 90px;
+}
+.form button .fa {
+  margin-right: 6px;
 }
 
-.card {
-width: 90%;
-height: 40%;
-font-size: 14px;
+/*--------------------
+Checkout
+--------------------*/
+.checkout {
+  margin: 150px auto 30px;
+  position: relative;
+  width: 460px;
+  background: white;
+  border-radius: 15px;
+  padding: 160px 45px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
-.card-item__typeImg {
-height: 12px;
+/*--------------------
+Credit Card
+--------------------*/
+.credit-card-box {
+  perspective: 1000;
+  width: 400px;
+  height: 280px;
+  position: absolute;
+  top: -112px;
+  left: 50%;
+  transform: translateX(-50%);
 }
+.credit-card-box:hover .flip, .credit-card-box.hover .flip {
+  transform: rotateY(180deg);
+}
+.credit-card-box .front,
+.credit-card-box .back {
+  width: 400px;
+  height: 250px;
+  border-radius: 15px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background: linear-gradient(135deg, #bd6772, #53223f);
+  position: absolute;
+  color: #fff;
+  font-family: Inconsolata;
+  top: 0;
+  left: 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+.credit-card-box .front::before,
+.credit-card-box .back::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url("http://cdn.flaticon.com/svg/44/44386.svg") no-repeat center;
+  background-size: cover;
+  opacity: 0.05;
+}
+.credit-card-box .flip {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.credit-card-box .logo {
+  position: absolute;
+  top: 9px;
+  right: 20px;
+  width: 60px;
+}
+.credit-card-box .logo svg {
+  width: 100%;
+  height: auto;
+  fill: #fff;
+}
+.credit-card-box .front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.credit-card-box .back {
+  transform: rotateY(180deg);
+}
+.credit-card-box .back .logo {
+  top: 185px;
+}
+.credit-card-box .chip {
+  position: absolute;
+  width: 60px;
+  height: 45px;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #ddccf0 0%, #d1e9f5 44%, #f8ece7 100%);
+  border-radius: 8px;
+}
+.credit-card-box .chip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 4px solid rgba(128, 128, 128, 0.1);
+  width: 80%;
+  height: 70%;
+  border-radius: 5px;
+}
+.credit-card-box .strip {
+  background: linear-gradient(135deg, #404040, #1a1a1a);
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  top: 30px;
+  left: 0;
+}
+.credit-card-box .number {
+  position: absolute;
+  margin: 0 auto;
+  top: 103px;
+  left: 19px;
+  font-size: 38px;
+}
+.credit-card-box label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-shadow: none;
+  text-transform: uppercase;
+  font-weight: normal;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 3px;
+}
+.credit-card-box .card-holder,
+.credit-card-box .card-expiration-date {
+  position: absolute;
+  margin: 0 auto;
+  top: 180px;
+  left: 19px;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+.credit-card-box .card-expiration-date {
+  text-align: right;
+  left: auto;
+  right: 20px;
+}
+.credit-card-box .ccv {
+  height: 36px;
+  background: #fff;
+  width: 91%;
+  border-radius: 5px;
+  top: 110px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: 0 auto;
+  color: #000;
+  text-align: right;
+  padding: 10px;
+}
+.credit-card-box .ccv label {
+  margin: -25px 0 14px;
+  color: #fff;
 }
 
-/* Для разрешения меньше 480px */
-@media (max-width: 480px) {
-.main {
-top: 5%;
-padding: 20px 5px;
+.the-most {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 50vw;
+  max-width: 200px;
+  padding: 10px;
 }
-
-.form {
-min-width: 95%;
-}
-
-.card {
-width: 95%;
-height: 35%;
-font-size: 12px;
-}
-
-.card-item__typeImg {
-height: 10px;
-}
-}
-
-/* Для разрешения меньше 320px */
-@media (max-width: 320px) {
-.main {
-top: 2%;
-padding: 10px 2px;
-}
-
-.form {
-min-width: 98%;
-}
-
-.card {
-width: 98%;
-height: 30%;
-font-size: 10px;
-}
-
-.card-item__typeImg {
-height: 8px
-
-;
-}
+.the-most img {
+  max-width: 100%;
 }

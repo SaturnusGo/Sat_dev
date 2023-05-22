@@ -5,16 +5,17 @@ from pyjwt import PyJWTError
 from starlette import status
 from starlette.exceptions import HTTPException
 
+
 class CustomJWTAuthentication(BaseAuthenticationBackend):
     def __init__(self, secret: str, lifetime_seconds: int):
         self.secret = secret
         self.lifetime_seconds = lifetime_seconds
 
     async def __call__(
-        self,
-        request: Request,
-        user_db: "UserDatabase",
-        token: str,
+            self,
+            request: Request,
+            user_db: "UserDatabase",
+            token: str,
     ) -> "BaseUserDB":
         try:
             payload = jwt.decode(token, self.secret, algorithms=["HS256"])
