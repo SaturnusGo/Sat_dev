@@ -11,9 +11,10 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
   background-color: var(--primary-bg-color);
-  color: var(--primary-text-color);  padding: 20px;
+  background-attachment: fixed; /* Добавлено */
+  color: var(--primary-text-color);
+  padding: 20px;
   position: fixed;
   display: fixed;
   min-height: 100vh;
@@ -319,23 +320,39 @@ li.message {
   margin-bottom: 10px;
   border-radius: 20px;
   background-color: #f2f2f2;
-  color: #000;
+  color: var(--secondary-text-color);
   font-size: 14px;
   margin: 10px;
   border-bottom: 1px solid #ddd;
 }
 
 
-
 #messages {
+  overflow-y: auto; /* Добавлено */
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin-bottom: 60px;#
+  flex-direction: column-reverse;
+  overflow: auto;
+  height: 500px; /* Замените на желаемую высоту */
 }
+
+.chat-container-outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary-bg-color);
+}
+
+.chat-container-inner {
+    overflow: auto;
+    height: 100%;
+    padding-bottom: 60px; /* Чтобы оставить место для панели ввода сообщений */
+}
+
 
 .swiper-container {
   width: 100%;

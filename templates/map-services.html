@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ваша страница</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css" type="text/css">
+    <link rel="stylesheet" href="/public/map.css">
+    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="stylesheet" href="/public/language-switcher.css">
+    <style>
+        /* Ваши стили здесь */
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .content-container {
+            padding-top: 60px; /* Высота хедера */
+        }
+
+        .search-input {
+            background-color: #f0f0f0;
+            padding: 10px;
+            cursor: pointer; /* Добавляем курсор указателя для поля ввода */
+            transition: background-color 0.3s ease;
+        }
+
+        .search-input input {
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .blocks-row {
+            display: flex;
+            justify-content: flex-start;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .block {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 150px;
+            background-color: #f0f0f0;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            /* Добавляем иконки */
+            background-image: url("icon1.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .block:hover {
+            background-color: #2A2A2A;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .small-blocks-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .small-block {
+            flex: 0 0 auto;
+            width: 80px;
+            height: 80px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            border-radius: 10px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .small-block:hover {
+            background-color: #2A2A2A;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .long-blocks-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .long-block {
+            flex: 0 0 auto;
+            width: 150px;
+            height: 75px;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .long-block:hover {
+            background-color: #2A2A2A;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .wide-blocks-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .wide-block {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 100px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .wide-block:hover {
+            background-color: #2A2A2A;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        #map-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Изменено на 100% для занимания всего экрана */
+            background-color: #000;
+            z-index: 1; /* Увеличиваем z-index, чтобы карта была поверх остального контента */
+            transition: transform 0.5s ease-in-out; /* Изменено на transform для плавного движения */
+            transform: translateY(100vh); /* Изначально смещаем контейнер за экран */
+        }
+
+        #map-container.open {
+            transform: translateY(0); /* При свайпе вверх смещаем контейнер обратно на 0 */
+        }
+
+        #map {
+            height: calc(100% - 150px); /* Изменено на 100% минус высота поля ввода и блоков */
+            width: 100%;
+        }
+
+        .address-container {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .order-info {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .popular-trips-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .popular-trip {
+            flex: 0 0 auto;
+            width: 150px;
+            height: 100px;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .popular-trip:hover {
+            background-color: #2A2A2A;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <span class="logo-text">Services</span>
+        </div>
+        <div class="language-switch-dropdown" id="language-switch-dropdown">
+            <i class="fas fa-globe" id="language-globe"></i>
+            <div class="language-option-container" id="language-menu">
+                <a href="#" class="language-option active" data-lang="ru">RU</a>
+                <a href="#" class="language-option" data-lang="en">EN</a>
+                <a href="#" class="language-option" data-lang="es">ES</a>
+                <a href="#" class="language-option" data-lang="ua">UA</a>
+            </div>
+        </div>
+    </header>
+    <div class="content-container">
+        <div class="search-input">
+            <input type="button" placeholder="Куда едем?" onclick="showMap()">
+        </div>
+        <div class="blocks-row">
+            <div class="block">Заказ такси</div>
+            <div class="block">Корпоративные услуги</div>
+            <div class="block">Доставка</div>
+            <div class="block">Профиль</div>
+            <div class="block">Настройки</div>
+        </div>
+
+        <div class="small-blocks-row">
+            <div class="small-block">Услуги</div>
+            <div class="small-block">Доставка</div>
+        </div>
+
+        <div class="blocks-row">
+            <div class="small-block">Блок 1</div>
+            <div class="small-block">Блок 2</div>
+            <div class="small-block">Блок 3</div>
+            <div class="small-block">Блок 4</div>
+            <div class="small-block">Блок 5</div>
+        </div>
+
+        <div class="long-blocks-row">
+            <div class="long-block">Фото 1</div>
+            <div class="long-block">Фото 2</div>
+        </div>
+
+        <div class="wide-blocks-row">
+            <div class="wide-block">Кнопка 1</div>
+            <div class="wide-block">Кнопка 2</div>
+        </div>
+    </div>
+    <div id="map-container">
+        <div id="map"></div>
+        <div class="address-container">
+            <input type="text" placeholder="Куда едем?" oninput="updateOrderInfo(event)">
+        </div>
+        <div class="order-info">
+            <div id="destination-1"></div>
+            <div id="destination-2"></div>
+        </div>
+        <div class="popular-trips-container">
+            <div class="popular-trip">Поездка 1</div>
+            <div class="popular-trip">Поездка 2</div>
+            <div class="popular-trip">Поездка 3</div>
+        </div>
+    </div>
+    <!-- Ваши скрипты MapBox здесь -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-sdk-js/v2.4.2/mapbox-sdk.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script src="/public/js/map.js"></script>
+    <script src="/public/js/languages-login.js"></script>
+    <script>
+        var searchInput = document.querySelector('.search-input input');
+        var mapContainer = document.getElementById('map-container');
+        searchInput.addEventListener('click', function() {
+            mapContainer.classList.add('open');
+        });
+
+        function updateOrderInfo(event) {
+            var inputValue = event.target.value;
+            var destination1 = document.getElementById('destination-1');
+            var destination2 = document.getElementById('destination-2');
+
+            if (inputValue.trim() !== '') {
+                destination1.innerText = 'Пункт назначения: ' + inputValue;
+                destination2.innerText = 'Пункт назначения: ' + inputValue;
+            } else {
+                destination1.innerText = '';
+                destination2.innerText = '';
+            }
+        }
+    </script>
+</body>
+</html>

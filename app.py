@@ -20,6 +20,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from typing import List
 from typing import Dict
 from starlette.websockets import WebSocketState
+from database.models import Ride
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -126,6 +127,22 @@ async def get_driver_chat(request: Request):
     return templates.TemplateResponse("driver_chat.html", {"request": request})
 
 
+# Предположим, что у нас есть некий асинхронный сервис по управлению поездками
+ride_service = None
+
+
+@app.post("/rides")
+async def create_ride(ride: Ride):
+    # Здесь вы можете использовать ваш сервис по управлению поездками, чтобы сохранить информацию о поездке
+    new_ride = await ride_service.create_ride(ride.ride_type, ride.destination)
+    return new_ride
+
+
+@app.get("/map-services", response_class=HTMLResponse)
+async def get_map_services(request: Request):
+    return templates.TemplateResponse("map-services.html", {"request": request})
+
+
 def verify_password(db: Session, user_id: int, password: str) -> bool:
     user = db.query(User).filter(User.user_id == user_id).first()
     if not user:
@@ -225,6 +242,11 @@ async def exception_handler(request: Request, exc: Exception):
 @app.get("/loading", response_class=HTMLResponse)
 async def get_loading_page(request: Request):
     return templates.TemplateResponse("loader.html", {"request": request})
+
+
+@app.get("/map", response_class=HTMLResponse)
+async def get_map(request: Request):
+    return templates.TemplateResponse("map.html", {"request": request})
 
 
 @app.exception_handler(HTTPException)

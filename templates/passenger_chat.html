@@ -13,27 +13,30 @@
     <nav class="navbar">
         <h1>Чат с водителем SaturnusGo</h1>
     </nav>
-    <div class="chat-container">
-        <div id="sent-messages"></div>
-        <ul id="messages" class="swiper-wrapper">
-        </ul>
-        <form action="" onsubmit="sendPassengerMessage(event)">
-            <div id="js-chatbar" class="chat-bar">
-              <div id="js-toggle" class="chat-bar__toggle" onclick="toggle()">
-                <i class="material-icons">add</i>
-              </div>
-              <div class="chat-bar__message">
-                <input class="chat-bar__input" type="text" placeholder="Message...">
-              </div>
-              <div class="chat-bar__buttons">
-                <div class="button b-1"><i class="material-icons">camera_alt</i></div>
-                <div class="button b-2"><i class="material-icons">photo</i></div>
-                <div class="button b-3"><i class="material-icons">gif</i></div>
-                <div class="button b-4"><i class="material-icons">more_horiz</i></div>
-              </div>
-            </div>
-        </form>
+    <div class="chat-container-outer">
+        <div class="chat-container-inner">
+            <div id="sent-messages"></div>
+            <ul id="messages" class="swiper-wrapper">
+            </ul>
+        </div>
     </div>
+    <form action="" onsubmit="sendPassengerMessage(event)">
+        <div id="js-chatbar" class="chat-bar">
+          <div id="js-toggle" class="chat-bar__toggle" onclick="toggle()">
+            <i class="material-icons">add</i>
+          </div>
+          <div class="chat-bar__message">
+            <input class="chat-bar__input" type="text" placeholder="Message...">
+          </div>
+          <div class="chat-bar__buttons">
+            <div class="button b-1"><i class="material-icons">camera_alt</i></div>
+              <div class="button b-2" onclick="uploadFile()"><i class="material-icons">photo</i></div>
+              <input type="file" id="file-input" style="display: none" accept="image/*">
+            <div class="button b-3"><i class="material-icons">gif</i></div>
+            <div class="button b-4"><i class="material-icons">more_horiz</i></div>
+          </div>
+        </div>
+    </form>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/public/js/chat.js"></script>
     <script src="/public/js/passenger_chat.js"></script>

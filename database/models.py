@@ -28,3 +28,8 @@ class RegisterNameRequest(BaseModel):
 class RegisterPasswordRequest(BaseModel):
     user_id: int
     password: str
+
+
+class Ride(BaseModel):
+    ride_type: str
+    destination: str

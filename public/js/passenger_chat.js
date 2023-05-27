@@ -15,7 +15,7 @@ passengerWS.onopen = function(event) {
             let message;
             // Удалить уникальный идентификатор и префикс из сообщения
             if (isOwnMessage) {
-                message = event.data.slice(clientId.length + "Passenger message: ".length);
+                message = event.data.slice(clientId.length + "{user_id}: ".length);
                 if (outgoingMessage) {
                     outgoingMessage = false;
                     return; // пропускаем добавление исходящего сообщения, так как оно уже было добавлено ранее
@@ -55,11 +55,16 @@ function appendMessage(message, isOwnMessage) {
         li.classList.add("driver");
     }
     li.appendChild(document.createTextNode(message));
-    messages.appendChild(li);
+    messages.insertBefore(li, messages.firstChild); // этот метод вставляет новое сообщение в начало списка
 
     // Позволяет прокрутить до последнего сообщения
-    li.scrollIntoView();
+    messages.scrollTop = messages.scrollHeight;
 }
+
+var messageList = document.getElementById('messages');
+messageList.scrollTop = messageList.scrollHeight;
+
+
 
 passengerWS.onerror = function(event) {
     console.error("WebSocket error observed:", event);

@@ -11,13 +11,15 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="/public/custom-profile.css">
     <link rel="stylesheet" href="/public/side-bar.css">
     <link rel="stylesheet" href="/public/language-switcher.css">
     <link rel="stylesheet" href="/public/login-footer.css">
 </head>
+    {% include 'loader.html' %}
 <body>
-   <header class="header">
+  <header class="header">
         <div class="header-logo">
         <span class="logo-text">SaturnusGo</span>
          </div>
@@ -30,6 +32,7 @@
                 <a href="#" class="language-option" data-lang="ua">UA</a>
             </div>
         </div>
+      <a href="/trips" class="header-button animate__animated animate__fadeInRight">К поездкам</a>
     <button class="sidebar-toggle" id="sidebar-toggle">
         <span></span>
         <span></span>
@@ -37,9 +40,10 @@
     </button>
     <div class="sidebar" id="sidebar">
         <ul class="sidebar-links">
+            <li><a href="/welcome" data-ru="Поехали" data-en="Let's go" data-es="Ir">Поехали</a></li>
+            <li><a href="/services" data-ru="Услуги" data-en="Services" data-es="Servicios">Услуги</a></li>
             <li><a href="/welcome" data-ru="Главная" data-en="Home" data-es="Inicio">Главная</a></li>
             <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de">О нас</a></li>
-            <li><a href="/services" data-ru="Услуги" data-en="Services" data-es="Servicios">Услуги</a></li>
             <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos">Контакты</a></li>
             <li><a href="/login" data-ru="Выйти" data-en="Log out" data-es="Salir">Выйти</a></li>
         </ul>
@@ -59,7 +63,7 @@
                         </div>
                         <div class="dialog-button">
                             <button class="update-btn" data-ru="Обновить" data-en="Update" data-es="Actualizar">Обновить</button>
-                                                        <button class="close-btn" data-ru="Закрыть" data-en="Close" data-es="Cerrar">Закрыть</button>
+                            <button class="close-btn" data-ru="Закрыть" data-en="Close" data-es="Cerrar">Закрыть</button>
                         </div>
                     </div>
                 </div>
@@ -147,7 +151,6 @@
         </div>
     </div>
 </div>
-    {% include 'loader.html' %}
 </body>
     <footer>
         <p data-ru="SaturnusGo ©Все права защищены" data-en="SaturnusGo ©All rights reserved" data-es="SaturnusGo ©Todos los derechos reservados">SaturnusGo ©Все права защищены</p>

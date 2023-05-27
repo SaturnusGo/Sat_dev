@@ -58,6 +58,8 @@ var swiper = new Swiper('.swiper-container', {
   },
 });
 
+document.querySelector('.button.b-2').addEventListener('click', uploadPhoto);
+
 function appendMessage(message, isOwnMessage) {
     var messages = document.getElementById('messages');
     var li = document.createElement('li');
@@ -65,8 +67,35 @@ function appendMessage(message, isOwnMessage) {
         li.classList.add("own-message");
     }
     li.appendChild(document.createTextNode(message));
-    messages.appendChild(li);
 
-    // Скролл вниз
-    li.scrollIntoView();
+    // Добавление сообщения в начало списка
+    messages.prepend(li);
+
+    // Скролл вверх
+    messages.scrollTop = 0;
 }
+// PHOTO
+function uploadFile() {
+    document.getElementById('file-input').click();
+}
+
+
+document.getElementById('file-input').addEventListener('change', function() {
+    var file = this.files[0];
+    var formData = new FormData();
+    formData.append('file', file);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'upload.php'); // Замените 'upload.php' на URL вашего серверного скрипта, который будет обрабатывать загрузку файла
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            console.log('Файл успешно загружен в чат');
+            // Дополнительный код для обработки успешной загрузки файла в чат
+        }
+    };
+    xhr.send(formData);
+});
+
+
+
+

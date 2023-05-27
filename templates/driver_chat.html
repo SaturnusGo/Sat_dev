@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="shortcut icon" type="image/png" href="/public/videos/favicon.jpg">
     <title>Чат</title>
-    <link rel="stylesheet" href="/public/chat_driver.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/public/chat_passenger.css">
+    <link rel="stylesheet" href="/public/mobile-chatbar.css">
 </head>
 <body>
-    <h1>Чат</h1>
-    <form action="" onsubmit="sendDriverMessage(event)">
-        <input type="text" id="messageInput" autocomplete="off" placeholder="Type a message"/>
-        <button>Send</button>
-    </form>
-    <div class="chat-container">
-      <ul id="messages">
-        <li class="message">Здравствуйте! Я подъехал!</li>
-        <li class="message driver">Я вас не вижу</li>
-        <li class="message">Отлично! Спасибо за поездку</li>
-      </ul>
+    <nav class="navbar">
+        <h1>Чат с пассажиром SaturnusGo</h1>
+    </nav>
+    <div class="chat-container-outer">
+        <div class="chat-container-inner">
+            <div id="sent-messages"></div>
+            <ul id="messages" class="swiper-wrapper">
+            </ul>
+        </div>
     </div>
+    <form action="" onsubmit="sendDriverMessage(event)">
+        <div id="js-chatbar" class="chat-bar">
+          <div id="js-toggle" class="chat-bar__toggle" onclick="toggle()">
+            <i class="material-icons">add</i>
+          </div>
+          <div class="chat-bar__message">
+            <input class="chat-bar__input" type="text" placeholder="Message...">
+          </div>
+          <div class="chat-bar__buttons">
+            <div class="button b-1"><i class="material-icons">camera_alt</i></div>
+            <div class="button b-2"><i class="material-icons">photo</i></div>
+            <div class="button b-3"><i class="material-icons">gif</i></div>
+            <div class="button b-4"><i class="material-icons">more_horiz</i></div>
+          </div>
+        </div>
+    </form>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/public/js/chat.js"></script>
+    <script src="/public/js/driver_chat.js"></script>
+    <script src="/public/js/input-anim.js"></script>
 </body>
-<script src="/public/js/chat.js"></script>
-<script src="/public/js/driver_chat.js"></script>
 </html>

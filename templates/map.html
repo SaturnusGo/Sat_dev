@@ -1,46 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>Map</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Карта</title>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/png" href="/public/videos/favicon.jpg">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet'/>
-    <script src='https://api.mapbox.com/mapbox-sdk-js/v2.4.2/mapbox-sdk.js'></script>
-    <script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css'/>
-    <link rel="stylesheet" href="/public/map.css">
-    <link rel="stylesheet" href="/public/side-bar.css">
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css' type='text/css' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .input-fields {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+
+        .driver-popup {
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
-  <div class="burger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <button class="sidebar-toggle" id="sidebar-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <div class="sidebar" id="sidebar">
-        <ul class="sidebar-links">
-            <li><a href="http://127.0.0.1:5000/" data-ru="Главная" data-en="Home" data-es="Inicio">Главная</a></li>
-            <li><a href="#about" data-ru="О нас" data-en="About" data-es="Acerca de">О нас</a></li>
-            <li><a href="#services" data-ru="Услуги" data-en="Services" data-es="Servicios">Услуги</a></li>
-            <li><a href="#contact" data-ru="Контакты" data-en="Contacts" data-es="Contactos">Контакты</a></li>
-            <li><a href="http://127.0.0.1:5000/login" data-ru="Выйти" data-en="Log out" data-es="Salir">Выйти</a></li>
-        </ul>
-  </div>
-</div>
-    <div id="map" class="map"></div>
-    <form id="route-form" class="route-form">
-        <div id="geocoder" class="geocoder"></div>
-        <button type="submit">Построить маршрут</button>
-    </form>
-  <script src="/public/js/map.js"></script>
-  <script src="/public/js/side-bar.js"></script>
+    <div id='map'></div>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js'></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibWVyY3VyeXl5eSIsImEiOiJjbGc4eTRvcmYwMW5yM2ZxaWcwYTdrb2U2In0.z4zVOEpjuwcpE8dIOllo0g';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/outdoors-v11',
+            center: [-57.5575, -37.9975], // Установите начальные координаты в Гео-мар Дель Плате
+            zoom: 12 // Установите начальный масштаб
+        });
+
+        map.on('load', function() {
+            // Инициализация плагина Mapbox GL Directions
+            var directions = new MapboxDirections({
+                accessToken: mapboxgl.accessToken,
+                unit: 'metric',
+                profile: 'mapbox/driving',
+                alternatives: true,
+                bbox: [-58.5938, -35.0799, -57.1073, -34.3072] // Ограничить маршруты только в пределах Гранд Мар Дель Платы
+            });
+
+            map.addControl(directions);
+
+            directions.on('route', function() {
+                // При выборе маршрута скрыть поля ввода
+                document.getElementById('inputFields').style.display = 'none';
+
+                // Получить координаты балуна водителя
+                var driverLocation = directions.getOrigin();
+
+                // Создать и открыть всплывающее окно с информацией о водителе
+                var driverPopup = new mapboxgl.Popup()
+                    .setLngLat(driverLocation)
+                    .setHTML('<h3>Информация о водителе</h3><p>Имя: John Doe</p><p>Автомобиль: Toyota Camry</p>')
+                    .addTo(map);
+
+                // Приблизить карту к местоположению водителя
+                map.flyTo({
+                    center: driverLocation,
+                    zoom: 15
+                });
+
+                // Задержка перед показом всплывающего окна водителя
+                setTimeout(function() {
+                    driverPopup.addTo(map);
+                    driverPopup.getElement().style.visibility = 'visible';
+                }, 1000);
+            });
+        });
+
+        function submitForm() {
+            var origin = document.getElementById('origin').value;
+            var destination = document.getElementById('destination').value;
+            if (origin && destination) {
+                var directions = new MapboxDirections({
+                    accessToken: mapboxgl.accessToken
+                });
+
+                map.addControl(directions);
+
+                directions.setOrigin(origin);
+                directions.setDestination(destination);
+
+                // Скрыть поля ввода
+                document.getElementById('inputFields').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
-

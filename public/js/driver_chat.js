@@ -5,13 +5,13 @@ driverWS.onmessage = function(event) {
     var message = document.createElement('li');
     var content = document.createTextNode(event.data);
     message.appendChild(content);
-    message.classList.add("driver"); // добавление класса для сообщений от водителя
+    message.classList.add("message"); // изменение класса на "message"
     messages.appendChild(message);
 };
 
 function sendDriverMessage(event) {
     event.preventDefault();
-    var input = document.querySelector(".chat-bar__input");
+    var input = document.getElementById("js-chatbar").querySelector(".chat-bar__input");
     driverWS.send(input.value);
     input.value = '';
 }
@@ -25,6 +25,13 @@ driverWS.onerror = function(event) {
 };
 
 function toggle() {
-    // функция для обработки нажатия на кнопку chat-bar__toggle
-    // вам нужно реализовать эту функцию в соответствии с вашими требованиями
+    let chatbar = document.getElementById("js-chatbar");
+    let toggleBtn = document.getElementById("js-toggle");
+    if(chatbar.classList.contains("--is-active")){
+        chatbar.classList.remove("--is-active");
+        toggleBtn.querySelector("i").innerText = "add";
+    }else{
+        chatbar.classList.add("--is-active");
+        toggleBtn.querySelector("i").innerText = "close";
+    }
 }

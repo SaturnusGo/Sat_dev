@@ -391,6 +391,7 @@ input {
   height: 50px;
   box-sizing: border-box;
   background-color: transparent;
+  touch-action: manipulation;
 }
 /* Small devices (landscape phones, 260px and up) */
 @media (min-width: 260px) {
